@@ -1,0 +1,137 @@
+{
+  "users": [
+    {
+      "id": "aladejubeloea",
+      "fullName": "Aladejubelo Ajibolanle",
+      "branch": {
+        "name": "Dugbe",
+        "banksCode": "402",
+        "t24Code": "2072",
+        "region": "SW 1"
+      },
+      "approvalLevel": "0",
+      "role": "Initiator",
+      "password": "passwordSample@1"
+    },
+    {
+      "id": "nwosuyh",
+      "fullName": "Nwosu Humphrey",
+      "branch": {
+        "name": "Dugbe",
+        "banksCode": "402",
+        "t24Code": "2072",
+        "region": "SW 1"
+      },
+      "approvalLevel": "1",
+      "role": "Approver",
+      "password": "passwordSample@2"
+
+    },
+    {
+      "id": "amoduot",
+      "fullName": "Oluwatosin Amodu",
+      "branch": {
+        "name": "Dugbe",
+        "banksCode": "402",
+        "t24Code": "2072",
+        "region": "SW 1"
+      },
+      "approvalLevel": "3",
+      "role": "Concurrer",
+      "password": "passwordSample@3"
+    }
+  ],
+  "branches": [
+    {
+      "id": "2071",
+      "name": "Iwo road",
+      "banksCode": "401",
+      "region": "SW 1",
+      "ledger": "NGN1281410002071"
+    },
+    {
+      "id": "2072",
+      "name": "Dugbe",
+      "banksCode": "405",
+      "region": "SW 1",
+      "ledger": "NGN1281410002072"
+    },
+    {
+      "id": "2073",
+      "name": "Abeokuta",
+      "banksCode": "408",
+      "region": "SW 2",
+      "ledger": "NGN1281410002073"
+    },
+    {
+      "id": "2074",
+      "name": "Ijebu Ode",
+      "banksCode": "413",
+      "region": "SW 2",
+      "ledger": "NGN1281410002074"
+    },
+    {
+      "id": "2075",
+      "name": "Apata",
+      "banksCode": "416",
+      "region": "SW 1",
+      "ledger": "NGN1281410002075"
+    },
+    {
+      "id": "2076",
+      "name": "Challenge",
+      "banksCode": "417",
+      "region": "SW 1",
+      "ledger": "NGN1281410002076"
+    },
+    {
+      "id": "2077",
+      "name": "Secretariat",
+      "banksCode": "418",
+      "region": "SW 1",
+      "ledger": "NGN1281410002077"
+    },
+    {
+      "id": "2080",
+      "name": "Oka Ado",
+      "banksCode": "408",
+      "region": "SW 2",
+      "ledger": "NGN1281410002080"
+    },
+    {
+      "id": "2083",
+      "name": "Ilorin 1",
+      "banksCode": "409",
+      "region": "SW 2",
+      "ledger": "NGN1281410002083"
+    },
+    {
+      "id": "2085",
+      "name": "Bowen",
+      "banksCode": "411",
+      "region": "SW 1",
+      "ledger": "NGN1281410002085"
+    },
+    {
+      "id": "2086",
+      "name": "Ilorin 2",
+      "banksCode": "423",
+      "region": "SW 2",
+      "ledger": "NGN1281410002086"
+    },
+    {
+      "id": "2087",
+      "name": "Ado Ekiti",
+      "banksCode": "424",
+      "region": "SW 2",
+      "ledger": "NGN1281410002087"
+    },
+    {
+      "id": "2088",
+      "name": "Akure",
+      "banksCode": "406",
+      "region": "SW 2",
+      "ledger": "NGN1281410002088"
+    }
+  ]
+}
