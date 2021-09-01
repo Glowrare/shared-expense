@@ -47,6 +47,7 @@
     {
       "id": "2071",
       "name": "Iwo road",
+      "callName": "iwoRoad",
       "banksCode": "401",
       "region": "SW 1",
       "ledger": "NGN1281410002071"
@@ -54,6 +55,7 @@
     {
       "id": "2072",
       "name": "Dugbe",
+      "callName": "dugbe",
       "banksCode": "405",
       "region": "SW 1",
       "ledger": "NGN1281410002072"
@@ -61,6 +63,7 @@
     {
       "id": "2073",
       "name": "Abeokuta",
+      "callName": "abeokuta",
       "banksCode": "408",
       "region": "SW 2",
       "ledger": "NGN1281410002073"
@@ -68,6 +71,7 @@
     {
       "id": "2074",
       "name": "Ijebu Ode",
+      "callName": "ijebuOde",
       "banksCode": "413",
       "region": "SW 2",
       "ledger": "NGN1281410002074"
@@ -75,13 +79,15 @@
     {
       "id": "2075",
       "name": "Apata",
+      "callName": "apata",
       "banksCode": "416",
       "region": "SW 1",
       "ledger": "NGN1281410002075"
     },
     {
       "id": "2076",
-      "name": "Challenge",
+      "name": "Ring Road",
+      "callName": "ringRoad",
       "banksCode": "417",
       "region": "SW 1",
       "ledger": "NGN1281410002076"
@@ -89,20 +95,23 @@
     {
       "id": "2077",
       "name": "Secretariat",
+      "callName": "secretariat",
       "banksCode": "418",
       "region": "SW 1",
       "ledger": "NGN1281410002077"
     },
     {
       "id": "2080",
-      "name": "Oka Ado",
-      "banksCode": "408",
-      "region": "SW 2",
+      "name": "Oke Ado",
+      "callName": "okeAdo",
+      "banksCode": "420",
+      "region": "SW 1",
       "ledger": "NGN1281410002080"
     },
     {
       "id": "2083",
       "name": "Ilorin 1",
+      "callName": "ilorinOne",
       "banksCode": "409",
       "region": "SW 2",
       "ledger": "NGN1281410002083"
@@ -110,6 +119,7 @@
     {
       "id": "2085",
       "name": "Bowen",
+      "callName": "bowen",
       "banksCode": "411",
       "region": "SW 1",
       "ledger": "NGN1281410002085"
@@ -117,6 +127,7 @@
     {
       "id": "2086",
       "name": "Ilorin 2",
+      "callName": "ilorinTwo",
       "banksCode": "423",
       "region": "SW 2",
       "ledger": "NGN1281410002086"
@@ -124,6 +135,7 @@
     {
       "id": "2087",
       "name": "Ado Ekiti",
+      "callName": "adoEkiti",
       "banksCode": "424",
       "region": "SW 2",
       "ledger": "NGN1281410002087"
@@ -131,6 +143,7 @@
     {
       "id": "2088",
       "name": "Akure",
+      "callName": "akure",
       "banksCode": "406",
       "region": "SW 2",
       "ledger": "NGN1281410002088"

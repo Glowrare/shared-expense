@@ -1,10 +1,12 @@
 <template>
   <div class="my-4">
-    <img
-      src="../../assets/sterling-full-logo.png"
-      alt="Sterling Logo"
-      class="img-fluid"
-    />
+    <a href="/">
+      <img
+        src="../../assets/sterling-full-logo.png"
+        alt="Sterling Logo"
+        class="img-fluid"
+      />
+    </a>
   </div>
   <div class="text-center" v-if="!isLoggedIn">
     <h2>
