@@ -62,15 +62,10 @@ export default {
       let branchFullDetails;
       allBranches.forEach((branch) => {
         if (branch.banksCode === selectedBranch) {
-          // return branch;
           branchFullDetails = branch;
         }
       });
-
-      // branch.banksCode = selectedBranch;
-      // });
       this.branch = branchFullDetails;
-      console.log(this.branch);
     },
   },
 };

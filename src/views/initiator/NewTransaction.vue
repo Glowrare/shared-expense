@@ -2,7 +2,7 @@
   <div class="row">
     <base-card>
       <form class="py-4 px-2">
-        <h3 class="mb-5">Share Expense</h3>
+        <h3 class="mb-5 text-center">Share Expense</h3>
         <div class="row">
           <div class="col-12 col-md-6 mb-3">
             <label for="" class="form-label mb-1"
@@ -43,6 +43,7 @@
             </div>
           </div>
         </div>
+        <p class="mb-1">Confirm branches to debit</p>
         <div class="row">
           <div class="col-12">
             <default-branch-field
@@ -54,15 +55,33 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <new-branch-field
+            <component
+              v-for="(component, index) in components"
+              :key="index"
+              :is="component"
               :branches="branches"
               :otherBranches="otherBranches"
-            ></new-branch-field>
-            <new-branch-field
-              :branches="branches"
-              :otherBranches="otherBranches"
-            ></new-branch-field>
+            />
           </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <base-button @click.prevent="addNewField">Add More</base-button>
+          </div>
+        </div>
+        <div class="row mb-3 gx-2">
+          <div class="col-auto col-sm-2"></div>
+          <div class="col-auto col-sm-5"></div>
+          <div class="col-auto col-sm-3">
+            <label for="" class="form-label visually-hidden">Branch Code</label>
+            <input
+              type="text"
+              v-model.number.trim="total"
+              class="form-control pry-input-border"
+              disabled
+            />
+          </div>
+          <div class="col-auto col-sm-2"></div>
         </div>
       </form>
     </base-card>
@@ -72,16 +91,20 @@
 <script>
 import DefaultBranchField from "../../components/initiator/DefaultBranchField.vue";
 import NewBranchField from "../../components/initiator/NewBranchField.vue";
+import BaseButton from "../../components/ui/BaseButton.vue";
 export default {
   name: "New Transaction",
   components: {
     DefaultBranchField,
     NewBranchField,
+    BaseButton,
   },
   data() {
     return {
+      total: 0,
       // branches: {},
       // defaultBranches: {},
+      components: [],
     };
   },
   computed: {
@@ -115,6 +138,11 @@ export default {
   // },
   created() {
     this.$store.dispatch("initiator/fetchBranches", this.userDetails);
+  },
+  methods: {
+    addNewField() {
+      this.components.push(NewBranchField);
+    },
   },
 };
 </script>
