@@ -13,9 +13,7 @@
       </select>
     </div>
     <div class="col-auto col-sm-5">
-      <label for="" class="form-label visually-hidden"
-        >Ledger Account Number</label
-      >
+      <label class="form-label visually-hidden">Ledger Account Number</label>
       <input
         type="text"
         class="form-control pry-input-border"
@@ -24,7 +22,7 @@
       />
     </div>
     <div class="col-auto col-sm-3">
-      <label for="" class="form-label visually-hidden">Amount</label>
+      <label class="form-label visually-hidden">Amount</label>
       <input
         type="text"
         v-model.number.trim="test"
@@ -33,7 +31,9 @@
       />
     </div>
     <div class="col-auto col-sm-2">
-      <button type="button" class="btn-close" aria-label="Close"></button>
+      <button class="delete-btn" aria-label="Close">
+        <img src="../../assets/Delete.svg" alt="" />
+      </button>
     </div>
   </div>
 </template>
@@ -70,3 +70,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.delete-btn {
+  background: none;
+  border: none;
+}
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+</style>
