@@ -2,7 +2,8 @@
   "users": [
     {
       "id": "aladejubeloea",
-      "fullName": "Aladejubelo Ajibolanle",
+      "firstName": "Ajibolanle",
+      "lastName": "Aladejubelo",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",
@@ -15,7 +16,8 @@
     },
     {
       "id": "nwosuyh",
-      "fullName": "Nwosu Humphrey",
+      "firstName": "Humphrey",
+      "lastName": "Nwosu",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",
@@ -25,11 +27,11 @@
       "approvalLevel": "1",
       "role": "Approver",
       "password": "passwordSample@2"
-
     },
     {
       "id": "amoduot",
-      "fullName": "Oluwatosin Amodu",
+      "firstName": "Oluwatosin",
+      "lastName": "Amodu",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",

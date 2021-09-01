@@ -6,9 +6,9 @@
       class="img-fluid"
     />
   </div>
-  <div class="text-center" v-if="isLoggedIn">
+  <div class="text-center" v-if="!isLoggedIn">
     <h2>
-      Welcome, <span class="text-uppercase">{{ firstName }}</span>
+      Welcome, <span class="text-uppercase">{{ userDetails.firstName }}</span>
     </h2>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   name: "Header",
   data() {
     return {
-      firstName: "Test",
+      // userDetails: "",
     };
   },
   computed: {
@@ -28,6 +28,9 @@ export default {
       } else {
         return true;
       }
+    },
+    userDetails() {
+      return this.$store.getters["auth/userDetails"];
     },
   },
 };

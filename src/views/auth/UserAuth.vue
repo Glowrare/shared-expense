@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <base-card class="login-bg">
-      <form action="">
+      <form @submit.prevent="userLogin">
         <div class="py-5">
           <h3 class="mb-0">Shared Expense</h3>
         </div>
@@ -15,7 +15,7 @@
           />
           <label for="floatingInput">Username</label>
         </div>
-        <div class="form-floating mb-5">
+        <div class="form-floating mb-2">
           <input
             type="password"
             class="form-control pry-input-border"
@@ -25,8 +25,19 @@
           />
           <label for="floatingPassword">Password</label>
         </div>
-
-        <base-button>Login</base-button>
+        <div class="invalid-feedback" :class="!formIsValid ? 'd-block' : ''">
+          Input cannot be empty
+        </div>
+        <div
+          id=""
+          class="invalid-feedback"
+          :class="loginError ? 'd-block' : ''"
+        >
+          {{ loginErrorMessage }}
+        </div>
+        <div class="mt-5">
+          <base-button>Login</base-button>
+        </div>
       </form>
     </base-card>
   </div>
@@ -41,7 +52,46 @@ export default {
     return {
       username: "",
       password: "",
+      formIsValid: true,
+      // loginError: false,
+      // loginErrorMessage: ""
     };
+  },
+  computed: {
+    loginError() {
+      return this.$store.getters["auth/loginError"];
+    },
+    loginErrorMessage() {
+      return this.$store.getters["auth/loginErrorMessage"];
+    },
+  },
+  methods: {
+    async userLogin() {
+      this.formIsValid = true;
+      if (this.username === "" || this.password === "") {
+        this.formIsValid = false;
+        return;
+      }
+
+      // this.isLoading = true;
+
+      const actionPayload = {
+        username: this.username,
+        password: this.password,
+      };
+
+      try {
+        await this.$store.dispatch("auth/login", actionPayload);
+        // const redirectUrl = `*/${this.$route.query.redirect || 'coaches'}`;
+        if (!this.loginError) {
+          this.$router.replace("/user-welcome");
+        }
+      } catch (err) {
+        this.error = err.message || "Failed to authenticate. Please try later.";
+      }
+
+      // this.isLoading = false;
+    },
   },
 };
 </script>

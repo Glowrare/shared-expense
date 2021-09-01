@@ -1,11 +1,35 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import UserAuth from "../views/auth/UserAuth.vue";
+import UserWelcome from "../views/initiator/UserWelcome.vue";
+import NewTransaction from "../views/initiator/NewTransaction.vue";
+import PostSuccess from "../views/initiator/PostSuccess.vue";
+
+// import store from "../store/index.js";
 
 const routes = [
   {
     path: "/",
     name: "Login",
     component: UserAuth,
+  },
+  {
+    path: "/user-welcome",
+    name: "Initiator Welcome",
+    component: UserWelcome,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/new-transaction",
+    name: "New Transaction",
+    component: NewTransaction,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/post-successful",
+    name: "Post Success",
+    component: PostSuccess,
+    meta: { requiresAuth: true },
   },
   // {
   //   path: '/about',
@@ -21,5 +45,14 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+//Global navigation guard which takes route-specific settings into account
+// router.beforeEach(function(to, _, next) {
+//   if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
+//     next("/");
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
