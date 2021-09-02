@@ -10,6 +10,7 @@
               type="text"
               class="form-control pry-input-border"
               placeholder="Enter amount"
+              v-model="sharedAmount"
             />
           </div>
           <div class="col-12 col-md-6 mb-3">
@@ -22,7 +23,7 @@
                     id="yesEvenShare"
                     name="evenShareCheck"
                     class="invisible position-absolute"
-                    checked
+                    v-model="evenShareStat"
                   />
                   <label class="" for="yesEvenShare">Yes </label>
                 </div>
@@ -34,6 +35,7 @@
                     id="noEvenShare"
                     name="evenShareCheck"
                     class="invisible position-absolute"
+                    v-model="evenShareStat"
                   />
                   <label class="" for="noEvenShare">No </label>
                 </div>
@@ -57,14 +59,11 @@
               v-for="(component, index) in components"
               :key="index"
               :is="component"
-              :branches="branches"
-              :otherBranches="otherBranches"
             />
           </div>
         </div>
         <div class="row mt-2">
           <div class="col">
-            <!-- <base-button @click.prevent="addNewField">Add More</base-button> -->
             <button @click.prevent="addNewField" class="add-more-btn">
               Add More
             </button>
@@ -135,6 +134,7 @@
 import DefaultBranchField from "../../components/initiator/DefaultBranchField.vue";
 import NewBranchField from "../../components/initiator/NewBranchField.vue";
 import BaseButton from "../../components/ui/BaseButton.vue";
+
 export default {
   name: "New Transaction",
   components: {
@@ -145,9 +145,10 @@ export default {
   data() {
     return {
       total: 0,
-      // branches: {},
-      // defaultBranches: {},
       components: [],
+      sharedAmount: 0,
+      evenShareStat: "",
+      debitBranches: [],
     };
   },
   computed: {
@@ -164,21 +165,11 @@ export default {
       return this.$store.getters["initiator/branchesList"].otherBranches;
     },
   },
-  // watch: {
-  //   branches(newVal, oldVal) {
-  //     console.log(newVal[1].region);
-  //     console.log(oldVal);
-  //     // const that = this
-  //     const userDetails = this.userDetails;
-  //     console.log(userDetails);
-  //     this.defaultBranches = newVal.filter((branch) => {
-  //       // branch.region === userDetails.branch.region;
-  //       console.log(branch.region);
-  //       branch.region === "SW 1";
-  //     });
-  //     console.log(this.defaultBranches);
-  //   },
-  // },
+  watch: {
+    defaultBranches() {
+      this.debitBranches = this.defaultBranches;
+    },
+  },
   created() {
     this.$store.dispatch("initiator/fetchBranches", this.userDetails);
   },

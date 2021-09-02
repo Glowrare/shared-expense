@@ -47,13 +47,13 @@ export default {
       branch: {},
     };
   },
-  props: {
-    //   branch: {
-    //     type: Object,
-    //     required: true,
-    //   },
-    branches: Array,
-    otherBranches: Array,
+  computed: {
+    branches() {
+      return this.$store.getters["initiator/branchesList"].allBranches;
+    },
+    otherBranches() {
+      return this.$store.getters["initiator/branchesList"].otherBranches;
+    },
   },
   methods: {
     getBranchDetails() {
