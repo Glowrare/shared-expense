@@ -21,8 +21,8 @@
     <div class="col-auto col-sm-3">
       <label class="form-label visually-hidden">Branch Code</label>
       <input
-        type="text"
-        v-model.number.trim="test"
+        type="number"
+        v-model.number="defAmountOther"
         class="form-control pry-input-border"
         placeholder="0"
       />

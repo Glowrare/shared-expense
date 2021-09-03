@@ -1,7 +1,16 @@
 <template>
+  <div class="text-center mt-3 mb-4">
+    <base-button
+      :link="true"
+      to="/user-welcome"
+      mode="outline"
+      class="text-uppercase pt-2"
+      >Home</base-button
+    >
+  </div>
   <div class="row">
     <base-card>
-      <form class="py-4 px-2">
+      <form class="py-4 px-2" ref="formGroup">
         <h3 class="mb-5 text-center">Share Expense</h3>
         <div class="row">
           <div class="col-12 col-md-6 mb-3">
@@ -164,10 +173,22 @@ export default {
     otherBranches() {
       return this.$store.getters["initiator/branchesList"].otherBranches;
     },
+    addedBranches() {
+      return this.$store.getters["initiator/otherBranches"];
+    },
+    addedBranchesLen() {
+      return this.addedBranches.length;
+    },
   },
   watch: {
-    defaultBranches() {
-      this.debitBranches = this.defaultBranches;
+    defaultBranches(newVal, oldVal) {
+      console.log(oldVal);
+      this.debitBranches = newVal.map((br) => br.id);
+    },
+    addedBranchesLen(newVal, oldVal) {
+      console.log(oldVal);
+      const newEntry = this.addedBranches[newVal - 1];
+      this.debitBranches.push(newEntry);
     },
   },
   created() {
@@ -175,6 +196,8 @@ export default {
   },
   methods: {
     addNewField() {
+      console.log(this.debitBranches);
+      console.log(this.$store.getters["initiator/otherBranches"]);
       this.components.push(NewBranchField);
     },
   },

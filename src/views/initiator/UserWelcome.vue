@@ -26,5 +26,8 @@
 <script>
 export default {
   name: "Initiator Welcome",
+  created() {
+    this.$store.dispatch("initiator/resetOtherBranches");
+  },
 };
 </script>

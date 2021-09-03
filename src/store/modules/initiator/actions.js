@@ -18,4 +18,10 @@ export default {
     });
     // context.commit("updateDefaultBranches", defaultBranches);
   },
+  updateOtherBranches(context, payload) {
+    context.commit("updateOtherBranches", payload);
+  },
+  resetOtherBranches(context) {
+    context.commit("resetOtherBranches", []);
+  },
 };

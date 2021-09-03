@@ -1,5 +1,5 @@
 <template>
-  <div class="row mb-3 gx-2">
+  <div class="row mb-3 gx-2 other-branches" :id="branch.id">
     <div class="col-auto col-sm-2">
       <select
         class="form-select pry-input-border"
@@ -24,8 +24,8 @@
     <div class="col-auto col-sm-3">
       <label class="form-label visually-hidden">Amount</label>
       <input
-        type="text"
-        v-model.number.trim="test"
+        type="number"
+        v-model.number="shrdAmountOther"
         class="form-control pry-input-border"
         placeholder="0"
       />
@@ -66,6 +66,7 @@ export default {
         }
       });
       this.branch = branchFullDetails;
+      this.$store.dispatch("initiator/updateOtherBranches", this.branch.id);
     },
   },
 };
