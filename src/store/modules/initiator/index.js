@@ -9,6 +9,7 @@ export default {
       branchesList: [],
       otherBranches: [],
       drBranchLog: [],
+      postID: "",
       // defaultBranches: {},
     };
   },

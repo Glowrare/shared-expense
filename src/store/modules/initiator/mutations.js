@@ -11,4 +11,7 @@ export default {
   updateDrBranchLog(state, payload) {
     state.drBranchLog = payload;
   },
+  fetchPostID(state, payload) {
+    state.postID = payload;
+  },
 };

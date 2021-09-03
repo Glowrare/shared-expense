@@ -1,5 +1,4 @@
 <template>
-  <!-- <p><a href="#" @click="modalToggle">Show Modal now</a></p> -->
   <div
     class="modal bdcenter-modal fade"
     :class="{ show: active, 'd-block': active }"
@@ -25,7 +24,7 @@
               class="outline"
               data-dismiss="modal"
               aria-label="Close"
-              @click="modalToggle"
+              @click="$emit('close-modal')"
               >{{ btnText }}</base-button
             >
           </div>
@@ -38,25 +37,15 @@
 
 <script>
 export default {
-  data() {
-    return {
-      active: false,
-    };
-  },
   props: {
     btnText: {
       type: String,
       required: false,
       default: "Close",
     },
-  },
-  methods: {
-    modalToggle() {
-      const body = document.querySelector("body");
-      this.active = !this.active;
-      this.active
-        ? body.classList.add("modal-open")
-        : body.classList.remove("modal-open");
+    active: {
+      type: Boolean,
+      default: false,
     },
   },
 };

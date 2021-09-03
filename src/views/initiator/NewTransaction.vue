@@ -61,6 +61,7 @@
               class="form-control pry-input-border"
               placeholder="Enter amount"
               v-model="sharedAmount"
+              @blur="checkUnevenTotal"
               required
             />
           </div>
@@ -73,12 +74,12 @@
                     type="radio"
                     id="yesEvenShare"
                     name="evenShareCheck"
-                    class="invisible position-absolute"
-                    :value="true"
+                    class="visually-hidden"
+                    value="yes"
                     v-model="evenShareStat"
                     required
                   />
-                  <label class="" for="yesEvenShare" @click="checkEvenShareStat"
+                  <label class="" for="yesEvenShare" @click="shareEvenAmt"
                     >Yes
                   </label>
                 </div>
@@ -89,12 +90,12 @@
                     type="radio"
                     id="noEvenShare"
                     name="evenShareCheck"
-                    class="invisible position-absolute"
-                    :value="false"
+                    class="visually-hidden"
+                    value="no"
                     v-model="evenShareStat"
                     required
                   />
-                  <label class="" for="noEvenShare" @click="checkEvenShareStat"
+                  <label class="" for="noEvenShare" @click="enableAmtInput"
                     >No
                   </label>
                 </div>
@@ -149,12 +150,29 @@
       </form>
     </base-card>
   </div>
+  <base-dialog btnText="Check" :active="active" @close-modal="closeModal">
+    <template v-slot:modalImage>
+      <div>
+        <img src="../../assets/codicon_error.svg" class="img-fluid" alt="" />
+      </div>
+    </template>
+    <template v-slot:default>
+      <p>
+        There is a disparity between the shared amount and total amount to be
+        shared.
+      </p>
+      <p>
+        Difference: <span class="fw-bold text-danger">{{ disparity }}</span>
+      </p>
+    </template>
+  </base-dialog>
 </template>
 
 <script>
 import DefaultBranchField from "../../components/initiator/DefaultBranchField.vue";
 import NewBranchField from "../../components/initiator/NewBranchField.vue";
 import BaseButton from "../../components/ui/BaseButton.vue";
+import BaseDialog from "../../components/ui/BaseDialog.vue";
 
 export default {
   name: "New Transaction",
@@ -162,6 +180,7 @@ export default {
     DefaultBranchField,
     NewBranchField,
     BaseButton,
+    BaseDialog,
   },
   data() {
     return {
@@ -172,6 +191,8 @@ export default {
       debitBranches: [],
       startAmt: null,
       narration: "",
+      disparity: null,
+      active: false,
     };
   },
   computed: {
@@ -214,34 +235,59 @@ export default {
       console.log(this.$store.getters["initiator/otherBranches"]);
       this.components.push(NewBranchField);
     },
-    checkEvenShareStat() {
+    shareEvenAmt() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
-      console.log(this.evenShareStat);
-      if (!this.evenShareStat) {
-        amtBoxes.forEach((box) => box.setAttribute("disabled", "disabled"));
-        this.shareAmtEvenly();
-      } else {
-        amtBoxes.forEach((box) => box.removeAttribute("disabled"));
+      amtBoxes.forEach((box) => box.setAttribute("disabled", "disabled"));
+      this.apportioner();
+    },
+    enableAmtInput() {
+      const amtBoxes = document.querySelectorAll(".sharedAmtBox");
+      amtBoxes.forEach((box) => box.removeAttribute("disabled"));
+    },
+    checkUnevenTotal() {
+      const amtBoxes = document.querySelectorAll(".sharedAmtBox");
+      const boxValues = [];
+
+      amtBoxes.forEach((box) => {
+        const val = parseFloat(box.value);
+        if (!isNaN(val)) {
+          boxValues.push(val);
+        }
+      });
+
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      this.total = boxValues.reduce(reducer);
+
+      if (this.total == this.sharedAmount) {
+        const drLogEntry = [];
+        amtBoxes.forEach((box) => {
+          if (box.value !== "") {
+            const newEntry = {
+              br: box.id.substring(0, 4),
+              amt: box.value,
+            };
+            drLogEntry.push(newEntry);
+          }
+        });
+
+        this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
       }
     },
-    shareAmtEvenly() {
+    apportioner() {
       const branchesCount = this.debitBranches.length;
       const drAmount = parseFloat(this.sharedAmount);
 
       this.total = drAmount.toLocaleString();
 
       const baseAmt = parseFloat((drAmount / branchesCount).toFixed(2));
-      console.log(baseAmt);
 
-      //Check if there is decimal point mismatch
+      //Check if there is decimal point difference
       const baseTotal = parseFloat((baseAmt * branchesCount).toFixed(2));
-      console.log(baseTotal);
 
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
 
       amtBoxes.forEach((box) => box.setAttribute("value", baseAmt));
       const difference = parseFloat((drAmount - baseTotal).toFixed(2));
-      console.log(difference);
 
       if (difference !== 0) {
         const lastAmt = baseAmt + difference;
@@ -261,19 +307,31 @@ export default {
       this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
     },
     async postTransaction() {
-      const postDetails = {
-        user: this.userDetails,
-        drLogEntry: this.$store.getters["initiator/drBranchLog"],
-        narration: this.narration,
-        id: `FT${Date.now()}`,
-      };
+      if (this.total == this.sharedAmount) {
+        const postDetails = {
+          user: this.userDetails,
+          drLogEntry: this.$store.getters["initiator/drBranchLog"],
+          narration: this.narration,
+          id: `FT${Date.now()}`,
+        };
 
-      try {
-        await this.$store.dispatch("initiator/postTransaction", postDetails);
-        this.$router.replace("/post-successful");
-      } catch (err) {
-        console.log(err.message) || "Something went wrong. Please try later.";
+        try {
+          await this.$store.dispatch("initiator/postTransaction", postDetails);
+          this.$router.replace("/post-successful");
+        } catch (err) {
+          console.log(err.message) || "Something went wrong. Please try later.";
+        }
+      } else {
+        this.disparity = this.total - this.sharedAmount;
+        const body = document.querySelector("body");
+        this.active = !this.active;
+        body.classList.add("modal-open", "overflow-hidden");
       }
+    },
+    closeModal() {
+      const body = document.querySelector("body");
+      this.active = !this.active;
+      body.classList.remove("modal-open", "overflow-hidden");
     },
   },
 };

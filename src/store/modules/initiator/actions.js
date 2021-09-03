@@ -16,7 +16,6 @@ export default {
       defaultBranches: defaultBranches,
       otherBranches: otherBranches,
     });
-    // context.commit("updateDefaultBranches", defaultBranches);
   },
   updateOtherBranches(context, payload) {
     context.commit("updateOtherBranches", payload);
@@ -25,6 +24,8 @@ export default {
     context.commit("resetOtherBranches", []);
   },
   async postTransaction(context, payload) {
+    context.commit("fetchPostID", "");
+
     const response = await fetch("http://localhost:3000/transactions", {
       method: "POST",
       headers: {
@@ -35,10 +36,13 @@ export default {
         txnDetails: payload.drLogEntry,
         id: payload.id,
         narration: payload.narration,
+        status: "pending",
       }),
     });
 
     const responseData = await response.json();
+
+    context.commit("fetchPostID", payload.id);
 
     console.log(responseData);
 

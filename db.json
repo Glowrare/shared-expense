@@ -207,7 +207,112 @@
         "supervisor": "nwosuyh"
       },
       "id": "FT1630695513950",
-      "narration": "Fingers crossed"
+      "narration": "Fingers crossed",
+      "status": "pending"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "txnDetails": [
+        {
+          "br": "2071",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2072",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2075",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2076",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2077",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2080",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2085",
+          "amt": "1875.75"
+        },
+        {
+          "br": "2086",
+          "amt": "1875.75"
+        }
+      ],
+      "id": "FT1630696653517",
+      "narration": "Just another",
+      "status": "pending"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "txnDetails": [
+        {
+          "br": "2071",
+          "amt": "7200"
+        },
+        {
+          "br": "2072",
+          "amt": "7620"
+        },
+        {
+          "br": "2075",
+          "amt": "8524"
+        },
+        {
+          "br": "2076",
+          "amt": "6300"
+        },
+        {
+          "br": "2077",
+          "amt": "4200"
+        },
+        {
+          "br": "2080",
+          "amt": "5100"
+        },
+        {
+          "br": "2085",
+          "amt": "4350"
+        }
+      ],
+      "id": "FT1630707065604",
+      "narration": "Cash swap CBN",
+      "status": "pending"
     }
   ]
 }

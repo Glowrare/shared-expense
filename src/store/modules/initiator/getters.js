@@ -8,4 +8,7 @@ export default {
   drBranchLog(state) {
     return state.drBranchLog;
   },
+  postID(state) {
+    return state.postID;
+  },
 };
