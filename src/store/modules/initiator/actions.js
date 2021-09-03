@@ -24,4 +24,29 @@ export default {
   resetOtherBranches(context) {
     context.commit("resetOtherBranches", []);
   },
+  async postTransaction(context, payload) {
+    const response = await fetch("http://localhost:3000/transactions", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        initiatorDetails: payload.user,
+        txnDetails: payload.drLogEntry,
+        id: payload.id,
+        narration: payload.narration,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    console.log(responseData);
+
+    if (!response.ok) {
+      const error = new Error(responseData.message || "Something went wrong");
+      throw error;
+    }
+
+    context.commit("updateDrBranchLog", []);
+  },
 };

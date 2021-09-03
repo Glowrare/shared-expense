@@ -5,4 +5,7 @@ export default {
   otherBranches(state) {
     return state.otherBranches;
   },
+  drBranchLog(state) {
+    return state.drBranchLog;
+  },
 };

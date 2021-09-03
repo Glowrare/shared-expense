@@ -8,6 +8,7 @@ export default {
     return {
       branchesList: [],
       otherBranches: [],
+      drBranchLog: [],
       // defaultBranches: {},
     };
   },

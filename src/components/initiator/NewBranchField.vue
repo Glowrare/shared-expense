@@ -25,7 +25,6 @@
       <label class="form-label visually-hidden">Amount</label>
       <input
         type="number"
-        v-model.number="shrdAmountOther"
         class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
         :id="`${branch.id}-amt`"
@@ -43,10 +42,8 @@
 export default {
   data() {
     return {
-      test: "",
       selBranch: "",
       branch: {},
-      shrdAmountOther: null,
     };
   },
   computed: {

@@ -12,7 +12,8 @@
       },
       "approvalLevel": "0",
       "role": "Initiator",
-      "password": "passwordSample@1"
+      "password": "passwordSample@1",
+      "supervisor": "nwosuyh"
     },
     {
       "id": "nwosuyh",
@@ -26,7 +27,8 @@
       },
       "approvalLevel": "1",
       "role": "Approver",
-      "password": "passwordSample@2"
+      "password": "passwordSample@2",
+      "supervisor": "amoduot"
     },
     {
       "id": "amoduot",
@@ -147,6 +149,65 @@
       "banksCode": "406",
       "region": "SW 2",
       "ledger": "NGN1281410002088"
+    }
+  ],
+  "transactions": [
+    {
+      "txnDetails": [
+        {
+          "br": "2071",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2072",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2075",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2076",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2077",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2080",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2085",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2074",
+          "amt": "5288.44"
+        },
+        {
+          "br": "2083",
+          "amt": "5288.48"
+        }
+      ],
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "id": "FT1630695513950",
+      "narration": "Fingers crossed"
     }
   ]
 }

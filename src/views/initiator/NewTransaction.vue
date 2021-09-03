@@ -10,54 +10,9 @@
   </div>
   <div class="row">
     <base-card>
-      <form class="py-4 px-2" ref="formGroup">
-        <h3 class="mb-5 text-center">Share Expense</h3>
-        <div class="row">
-          <div class="col-12 col-md-6 mb-3">
-            <label class="form-label mb-1">Enter total amount to share</label>
-            <input
-              type="text"
-              class="form-control pry-input-border"
-              placeholder="Enter amount"
-              v-model="sharedAmount"
-            />
-          </div>
-          <div class="col-12 col-md-6 mb-3">
-            <label class="form-label mb-1">Share evenly?</label>
-            <div class="row">
-              <div class="col-auto">
-                <div class="custom-radio-controls position-relative">
-                  <input
-                    type="radio"
-                    id="yesEvenShare"
-                    name="evenShareCheck"
-                    class="invisible position-absolute"
-                    :value="true"
-                    v-model="evenShareStat"
-                  />
-                  <label class="" for="yesEvenShare" @click="checkEvenShareStat"
-                    >Yes
-                  </label>
-                </div>
-              </div>
-              <div class="col-auto">
-                <div class="custom-radio-controls position-relative">
-                  <input
-                    type="radio"
-                    id="noEvenShare"
-                    name="evenShareCheck"
-                    class="invisible position-absolute"
-                    :value="false"
-                    v-model="evenShareStat"
-                  />
-                  <label class="" for="noEvenShare" @click="checkEvenShareStat"
-                    >No
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <form class="py-4 px-2" @submit.prevent="postTransaction">
+        <h3 class="mb-5 text-center">Shared Expense</h3>
+
         <p class="mb-1">Confirm branches to debit</p>
         <div class="row">
           <div class="col-12">
@@ -65,8 +20,6 @@
               :branch="branch"
               v-for="branch in defaultBranches"
               :key="branch.id"
-              :value="startAmt"
-              @update-value="updateValue"
             ></default-branch-field>
           </div>
         </div>
@@ -90,15 +43,64 @@
           <div class="d-none d-sm-block col-auto col-sm-2"></div>
           <div class="d-none d-sm-block col-auto col-sm-5"></div>
           <div class="col-auto col-sm-3 mt-3 mt-sm-0">
-            <label class="form-label visually-hidden">Branch Code</label>
+            <label class="form-label visually-hidden">Total Amount</label>
             <input
               type="text"
-              v-model.number.trim="total"
+              :value="total"
               class="form-control pry-input-border"
               disabled
             />
           </div>
           <div class="col-auto col-sm-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 mb-3">
+            <label class="form-label mb-1">Enter total amount to share</label>
+            <input
+              type="text"
+              class="form-control pry-input-border"
+              placeholder="Enter amount"
+              v-model="sharedAmount"
+              required
+            />
+          </div>
+          <div class="col-12 col-md-6 mb-3">
+            <label class="form-label mb-1">Share evenly?</label>
+            <div class="row">
+              <div class="col-auto">
+                <div class="custom-radio-controls position-relative">
+                  <input
+                    type="radio"
+                    id="yesEvenShare"
+                    name="evenShareCheck"
+                    class="invisible position-absolute"
+                    :value="true"
+                    v-model="evenShareStat"
+                    required
+                  />
+                  <label class="" for="yesEvenShare" @click="checkEvenShareStat"
+                    >Yes
+                  </label>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="custom-radio-controls position-relative">
+                  <input
+                    type="radio"
+                    id="noEvenShare"
+                    name="evenShareCheck"
+                    class="invisible position-absolute"
+                    :value="false"
+                    v-model="evenShareStat"
+                    required
+                  />
+                  <label class="" for="noEvenShare" @click="checkEvenShareStat"
+                    >No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row mb-3">
           <div class="col-12">
@@ -108,6 +110,8 @@
               class="form-control pry-input-border"
               rows="3"
               placeholder="Enter narration"
+              v-model="narration"
+              required
             ></textarea>
           </div>
         </div>
@@ -167,6 +171,7 @@ export default {
       evenShareStat: "",
       debitBranches: [],
       startAmt: null,
+      narration: "",
     };
   },
   computed: {
@@ -219,37 +224,56 @@ export default {
         amtBoxes.forEach((box) => box.removeAttribute("disabled"));
       }
     },
-    updateValue(val) {
-      this.startAmt = val;
-    },
     shareAmtEvenly() {
       const branchesCount = this.debitBranches.length;
       const drAmount = parseFloat(this.sharedAmount);
+
+      this.total = drAmount.toLocaleString();
 
       const baseAmt = parseFloat((drAmount / branchesCount).toFixed(2));
       console.log(baseAmt);
 
       //Check if there is decimal point mismatch
-      const baseTotal = baseAmt * branchesCount;
+      const baseTotal = parseFloat((baseAmt * branchesCount).toFixed(2));
       console.log(baseTotal);
 
-      // let lastAmt = baseAmt
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
 
-      // amtBoxes.forEach((box) => box.setAttribute("value", baseAmt));
+      amtBoxes.forEach((box) => box.setAttribute("value", baseAmt));
       const difference = parseFloat((drAmount - baseTotal).toFixed(2));
       console.log(difference);
-
-      this.updateValue(baseAmt);
 
       if (difference !== 0) {
         const lastAmt = baseAmt + difference;
         amtBoxes[amtBoxes.length - 1].setAttribute("value", lastAmt);
-        // console.log(lastAmt);
       }
-      // else {
-      //   this.sharedAmount = parseFloat(baseAmt);
-      // }
+
+      const drLogEntry = [];
+      amtBoxes.forEach((box) => {
+        const newEntry = {
+          br: box.id.substring(0, 4),
+          amt: box.value,
+        };
+
+        drLogEntry.push(newEntry);
+      });
+
+      this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
+    },
+    async postTransaction() {
+      const postDetails = {
+        user: this.userDetails,
+        drLogEntry: this.$store.getters["initiator/drBranchLog"],
+        narration: this.narration,
+        id: `FT${Date.now()}`,
+      };
+
+      try {
+        await this.$store.dispatch("initiator/postTransaction", postDetails);
+        this.$router.replace("/post-successful");
+      } catch (err) {
+        console.log(err.message) || "Something went wrong. Please try later.";
+      }
     },
   },
 };

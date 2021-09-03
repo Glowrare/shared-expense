@@ -22,7 +22,6 @@
       <label class="form-label visually-hidden">Branch Code</label>
       <input
         type="number"
-        v-model.number="shrdAmountDefault"
         class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
         :id="`${branch.id}-amt`"
@@ -55,16 +54,16 @@ export default {
       type: Boolean,
     },
   },
-  computed: {
-    shrdAmountDefault: {
-      get() {
-        return this.value;
-      },
-      set(val) {
-        this.$emit("update-value", val);
-      },
-    },
-  },
+  // computed: {
+  //   shrdAmountDefault: {
+  //     get() {
+  //       return this.value;
+  //     },
+  //     set(val) {
+  //       this.$emit("update-value", val);
+  //     },
+  //   },
+  // },
 };
 </script>
 
