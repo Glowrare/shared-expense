@@ -26,12 +26,13 @@
       <input
         type="number"
         v-model.number="shrdAmountOther"
-        class="form-control pry-input-border"
+        class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
+        :id="`${branch.id}-amt`"
       />
     </div>
     <div class="col-auto col-sm-2">
-      <button class="delete-btn" aria-label="Close">
+      <button class="delete-btn" aria-label="Close" :id="`${branch.id}-btn`">
         <img src="../../assets/Delete.svg" alt="" />
       </button>
     </div>
@@ -45,6 +46,7 @@ export default {
       test: "",
       selBranch: "",
       branch: {},
+      shrdAmountOther: null,
     };
   },
   computed: {

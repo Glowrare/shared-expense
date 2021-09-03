@@ -32,9 +32,12 @@
                     id="yesEvenShare"
                     name="evenShareCheck"
                     class="invisible position-absolute"
+                    :value="true"
                     v-model="evenShareStat"
                   />
-                  <label class="" for="yesEvenShare">Yes </label>
+                  <label class="" for="yesEvenShare" @click="checkEvenShareStat"
+                    >Yes
+                  </label>
                 </div>
               </div>
               <div class="col-auto">
@@ -44,9 +47,12 @@
                     id="noEvenShare"
                     name="evenShareCheck"
                     class="invisible position-absolute"
+                    :value="false"
                     v-model="evenShareStat"
                   />
-                  <label class="" for="noEvenShare">No </label>
+                  <label class="" for="noEvenShare" @click="checkEvenShareStat"
+                    >No
+                  </label>
                 </div>
               </div>
             </div>
@@ -59,6 +65,8 @@
               :branch="branch"
               v-for="branch in defaultBranches"
               :key="branch.id"
+              :value="startAmt"
+              @update-value="updateValue"
             ></default-branch-field>
           </div>
         </div>
@@ -155,9 +163,10 @@ export default {
     return {
       total: 0,
       components: [],
-      sharedAmount: 0,
+      sharedAmount: null,
       evenShareStat: "",
       debitBranches: [],
+      startAmt: null,
     };
   },
   computed: {
@@ -199,6 +208,48 @@ export default {
       console.log(this.debitBranches);
       console.log(this.$store.getters["initiator/otherBranches"]);
       this.components.push(NewBranchField);
+    },
+    checkEvenShareStat() {
+      const amtBoxes = document.querySelectorAll(".sharedAmtBox");
+      console.log(this.evenShareStat);
+      if (!this.evenShareStat) {
+        amtBoxes.forEach((box) => box.setAttribute("disabled", "disabled"));
+        this.shareAmtEvenly();
+      } else {
+        amtBoxes.forEach((box) => box.removeAttribute("disabled"));
+      }
+    },
+    updateValue(val) {
+      this.startAmt = val;
+    },
+    shareAmtEvenly() {
+      const branchesCount = this.debitBranches.length;
+      const drAmount = parseFloat(this.sharedAmount);
+
+      const baseAmt = parseFloat((drAmount / branchesCount).toFixed(2));
+      console.log(baseAmt);
+
+      //Check if there is decimal point mismatch
+      const baseTotal = baseAmt * branchesCount;
+      console.log(baseTotal);
+
+      // let lastAmt = baseAmt
+      const amtBoxes = document.querySelectorAll(".sharedAmtBox");
+
+      // amtBoxes.forEach((box) => box.setAttribute("value", baseAmt));
+      const difference = parseFloat((drAmount - baseTotal).toFixed(2));
+      console.log(difference);
+
+      this.updateValue(baseAmt);
+
+      if (difference !== 0) {
+        const lastAmt = baseAmt + difference;
+        amtBoxes[amtBoxes.length - 1].setAttribute("value", lastAmt);
+        // console.log(lastAmt);
+      }
+      // else {
+      //   this.sharedAmount = parseFloat(baseAmt);
+      // }
     },
   },
 };

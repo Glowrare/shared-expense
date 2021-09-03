@@ -22,13 +22,14 @@
       <label class="form-label visually-hidden">Branch Code</label>
       <input
         type="number"
-        v-model.number="defAmountOther"
-        class="form-control pry-input-border"
+        v-model.number="shrdAmountDefault"
+        class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
+        :id="`${branch.id}-amt`"
       />
     </div>
     <div class="col-auto col-sm-2">
-      <button class="delete-btn" aria-label="Close">
+      <button class="delete-btn" aria-label="Close" :id="`${branch.id}-btn`">
         <img src="../../assets/Delete.svg" alt="" />
       </button>
     </div>
@@ -39,13 +40,29 @@
 export default {
   data() {
     return {
-      test: "",
+      // shrdAmountDefault: null,
     };
   },
   props: {
+    value: {
+      type: Number,
+    },
     branch: {
       type: Object,
       required: true,
+    },
+    evenShareStat: {
+      type: Boolean,
+    },
+  },
+  computed: {
+    shrdAmountDefault: {
+      get() {
+        return this.value;
+      },
+      set(val) {
+        this.$emit("update-value", val);
+      },
     },
   },
 };
