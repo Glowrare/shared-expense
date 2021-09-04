@@ -28,7 +28,12 @@
       />
     </div>
     <div class="col-auto col-sm-2">
-      <button class="delete-btn" aria-label="Close" :id="`${branch.id}-btn`">
+      <button
+        class="delete-btn"
+        aria-label="Delete"
+        :id="`${branch.id}-btn`"
+        @click.prevent="$emit('delete-item-one', branch.id)"
+      >
         <img src="../../assets/Delete.svg" alt="" />
       </button>
     </div>
@@ -54,16 +59,10 @@ export default {
       type: Boolean,
     },
   },
-  // computed: {
-  //   shrdAmountDefault: {
-  //     get() {
-  //       return this.value;
-  //     },
-  //     set(val) {
-  //       this.$emit("update-value", val);
-  //     },
-  //   },
-  // },
+  methods: {
+    deleteItem() {},
+  },
+  emits: ["delete-item"],
 };
 </script>
 

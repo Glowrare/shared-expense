@@ -31,7 +31,12 @@
       />
     </div>
     <div class="col-auto col-sm-2">
-      <button class="delete-btn" aria-label="Close" :id="`${branch.id}-btn`">
+      <button
+        class="delete-btn"
+        aria-label="Delete"
+        @click.prevent="$emit('delete-item', branch.id)"
+        :id="`${branch.id}-btn`"
+      >
         <img src="../../assets/Delete.svg" alt="" />
       </button>
     </div>
@@ -68,6 +73,7 @@ export default {
       this.$store.dispatch("initiator/updateOtherBranches", this.branch.id);
     },
   },
+  emits: ["delete-item"],
 };
 </script>
 

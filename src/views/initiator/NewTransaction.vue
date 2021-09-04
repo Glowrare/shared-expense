@@ -20,6 +20,7 @@
               :branch="branch"
               v-for="branch in defaultBranches"
               :key="branch.id"
+              @delete-item-one="deleteItem"
             ></default-branch-field>
           </div>
         </div>
@@ -29,6 +30,7 @@
               v-for="(component, index) in components"
               :key="index"
               :is="component"
+              @delete-item="deleteItem"
             />
           </div>
         </div>
@@ -61,7 +63,7 @@
               class="form-control pry-input-border"
               placeholder="Enter amount"
               v-model="sharedAmount"
-              @blur="checkUnevenTotal"
+              @blur="checkTotal"
               required
             />
           </div>
@@ -235,6 +237,11 @@ export default {
       console.log(this.$store.getters["initiator/otherBranches"]);
       this.components.push(NewBranchField);
     },
+    deleteItem(id) {
+      console.log(id);
+      this.debitBranches = this.debitBranches.filter((br) => br !== id);
+      console.log(this.debitBranches);
+    },
     shareEvenAmt() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       amtBoxes.forEach((box) => box.setAttribute("disabled", "disabled"));
@@ -244,7 +251,7 @@ export default {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       amtBoxes.forEach((box) => box.removeAttribute("disabled"));
     },
-    checkUnevenTotal() {
+    checkTotal() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       const boxValues = [];
 
@@ -307,12 +314,20 @@ export default {
       this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
     },
     async postTransaction() {
-      if (this.total == this.sharedAmount) {
+      if (this.total == this.sharedAmount || this.evenShareStat === "yes") {
+        const fullDate = new Date();
+
+        const txnTime = `${fullDate.getDate()}/${
+          fullDate.getMonth() + 1
+        }/${fullDate.getFullYear()} ${fullDate.getHours()}:${fullDate.getMinutes()}`;
+
         const postDetails = {
           user: this.userDetails,
           drLogEntry: this.$store.getters["initiator/drBranchLog"],
+          totalAmount: this.sharedAmount,
           narration: this.narration,
           id: `FT${Date.now()}`,
+          txnTime: txnTime,
         };
 
         try {

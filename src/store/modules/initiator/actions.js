@@ -33,9 +33,11 @@ export default {
       },
       body: JSON.stringify({
         initiatorDetails: payload.user,
+        totalAmount: payload.totalAmount,
         txnDetails: payload.drLogEntry,
         id: payload.id,
         narration: payload.narration,
+        txnTime: payload.txnTime,
         status: "pending",
       }),
     });

@@ -48,6 +48,7 @@ export default {
       default: false,
     },
   },
+  emits: ["close-modal"],
 };
 </script>
 

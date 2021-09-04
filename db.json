@@ -4,6 +4,7 @@
       "id": "aladejubeloea",
       "firstName": "Ajibolanle",
       "lastName": "Aladejubelo",
+      "username": "ALADE004577",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",
@@ -19,6 +20,7 @@
       "id": "nwosuyh",
       "firstName": "Humphrey",
       "lastName": "Nwosu",
+      "username": "NWOSU003796",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",
@@ -34,6 +36,7 @@
       "id": "amoduot",
       "firstName": "Oluwatosin",
       "lastName": "Amodu",
+      "username": "AMODU002569",
       "branch": {
         "name": "Dugbe",
         "banksCode": "402",
@@ -153,61 +156,60 @@
   ],
   "transactions": [
     {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "20000",
       "txnDetails": [
         {
           "br": "2071",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2072",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2075",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2076",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2077",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2080",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2085",
-          "amt": "5288.44"
-        },
-        {
-          "br": "2074",
-          "amt": "5288.44"
+          "amt": "2500"
         },
         {
           "br": "2083",
-          "amt": "5288.48"
+          "amt": "2500"
         }
       ],
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "id": "FT1630695513950",
-      "narration": "Fingers crossed",
+      "id": "FT1630746080828",
+      "narration": "fuel",
+      "txnTime": "4/9/2021 10:1",
       "status": "pending"
     },
     {
@@ -215,6 +217,7 @@
         "id": "aladejubeloea",
         "firstName": "Ajibolanle",
         "lastName": "Aladejubelo",
+        "username": "ALADE004577",
         "branch": {
           "name": "Dugbe",
           "banksCode": "402",
@@ -226,60 +229,7 @@
         "password": "passwordSample@1",
         "supervisor": "nwosuyh"
       },
-      "txnDetails": [
-        {
-          "br": "2071",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2072",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2075",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2076",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2077",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2080",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2085",
-          "amt": "1875.75"
-        },
-        {
-          "br": "2086",
-          "amt": "1875.75"
-        }
-      ],
-      "id": "FT1630696653517",
-      "narration": "Just another",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
+      "totalAmount": "53790",
       "txnDetails": [
         {
           "br": "2071",
@@ -287,19 +237,19 @@
         },
         {
           "br": "2072",
-          "amt": "7620"
+          "amt": "6950"
         },
         {
           "br": "2075",
-          "amt": "8524"
+          "amt": "7200"
         },
         {
           "br": "2076",
-          "amt": "6300"
+          "amt": "8020"
         },
         {
           "br": "2077",
-          "amt": "4200"
+          "amt": "6400"
         },
         {
           "br": "2080",
@@ -307,11 +257,69 @@
         },
         {
           "br": "2085",
-          "amt": "4350"
+          "amt": "7920"
+        },
+        {
+          "br": "2088",
+          "amt": "5000"
         }
       ],
-      "id": "FT1630707065604",
-      "narration": "Cash swap CBN",
+      "id": "FT1630746158351",
+      "narration": "Cash swap",
+      "txnTime": "4/9/2021 10:2",
+      "status": "pending"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "15000",
+      "txnDetails": [
+        {
+          "br": "2071",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2072",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2075",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2076",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2077",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2080",
+          "amt": "2142.86"
+        },
+        {
+          "br": "2085",
+          "amt": "2142.84"
+        }
+      ],
+      "id": "FT1630746188583",
+      "narration": "Out of station allowance for RSM",
+      "txnTime": "4/9/2021 10:3",
       "status": "pending"
     }
   ]
