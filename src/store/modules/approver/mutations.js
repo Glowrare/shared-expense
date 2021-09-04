@@ -5,4 +5,7 @@ export default {
   fetchApprovedTxns(state, payload) {
     state.approvedTxns = payload;
   },
+  currentTxn(state, payload) {
+    state.currentTxn = payload;
+  },
 };

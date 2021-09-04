@@ -176,40 +176,57 @@
       "txnDetails": [
         {
           "br": "2071",
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
           "amt": "2500"
         },
         {
           "br": "2072",
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
           "amt": "2500"
         },
         {
           "br": "2075",
+          "ledger": "NGN1281410002075",
+          "banksCode": "416",
           "amt": "2500"
         },
         {
           "br": "2076",
+          "ledger": "NGN1281410002076",
+          "banksCode": "417",
           "amt": "2500"
         },
         {
           "br": "2077",
+          "ledger": "NGN1281410002077",
+          "banksCode": "418",
           "amt": "2500"
         },
         {
           "br": "2080",
+          "ledger": "NGN1281410002080",
+          "banksCode": "420",
           "amt": "2500"
         },
         {
           "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
           "amt": "2500"
         },
         {
-          "br": "2083",
+          "br": "2086",
+          "ledger": "NGN1281410002086",
+          "banksCode": "423",
           "amt": "2500"
         }
       ],
-      "id": "FT1630746080828",
-      "narration": "fuel",
-      "txnTime": "4/9/2021 10:01",
+      "id": "FT1630783616374",
+      "narration": "test",
+      "txnTime": "04/09/2021 20:26",
+      "evenShare": "yes",
       "status": "pending"
     },
     {
@@ -229,97 +246,55 @@
         "password": "passwordSample@1",
         "supervisor": "nwosuyh"
       },
-      "totalAmount": "53790",
+      "totalAmount": "30600",
       "txnDetails": [
         {
           "br": "2071",
-          "amt": "7200"
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
+          "amt": "6200"
         },
         {
           "br": "2072",
-          "amt": "6950"
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
+          "amt": "6500"
         },
         {
           "br": "2075",
-          "amt": "7200"
+          "ledger": "NGN1281410002075",
+          "banksCode": "416",
+          "amt": "2500"
         },
         {
           "br": "2076",
-          "amt": "8020"
+          "ledger": "NGN1281410002076",
+          "banksCode": "417",
+          "amt": "2100"
         },
         {
           "br": "2077",
-          "amt": "6400"
+          "ledger": "NGN1281410002077",
+          "banksCode": "418",
+          "amt": "3800"
         },
         {
           "br": "2080",
-          "amt": "5100"
+          "ledger": "NGN1281410002080",
+          "banksCode": "420",
+          "amt": "4200"
         },
         {
           "br": "2085",
-          "amt": "7920"
-        },
-        {
-          "br": "2088",
-          "amt": "5000"
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "5300"
         }
       ],
-      "id": "FT1630746158351",
-      "narration": "Cash swap",
-      "txnTime": "4/9/2021 10:02",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "15000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2072",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2075",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2076",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2077",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2080",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2085",
-          "amt": "2142.84"
-        }
-      ],
-      "id": "FT1630746188583",
-      "narration": "Out of station allowance for RSM",
-      "txnTime": "4/9/2021 10:03",
+      "id": "FT1630783813002",
+      "narration": "CBN Cash swap",
+      "txnTime": "04/09/2021 20:30",
+      "evenShare": "no",
       "status": "pending"
     }
   ]

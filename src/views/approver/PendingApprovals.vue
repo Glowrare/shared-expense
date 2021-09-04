@@ -5,7 +5,10 @@
     >
   </div>
   <div>
-    <TransactionTable :pendingTxns="pendingTxns" />
+    <TransactionTable
+      :pendingTxns="pendingTxns"
+      @view-transaction="viewTransaction"
+    />
   </div>
 </template>
 
@@ -21,6 +24,13 @@ export default {
   },
   created() {
     this.$store.dispatch("approver/fetchPendingTransactions");
+  },
+  methods: {
+    viewTransaction(id) {
+      const selectedTxn = this.pendingTxns.find((txn) => txn.id == id);
+      this.$store.commit("approver/currentTxn", selectedTxn);
+      this.$router.replace("/view-transaction");
+    },
   },
 };
 </script>

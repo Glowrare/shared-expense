@@ -40,8 +40,8 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/view-transactions",
-    name: "View Transactions",
+    path: "/view-transaction",
+    name: "View Transaction",
     component: ViewTransaction,
     meta: { requiresAuth: true },
   },

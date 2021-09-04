@@ -38,6 +38,7 @@ export default {
         id: payload.id,
         narration: payload.narration,
         txnTime: payload.txnTime,
+        evenShare: payload.evenShare,
         status: "pending",
       }),
     });

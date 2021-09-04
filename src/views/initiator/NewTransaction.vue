@@ -145,8 +145,14 @@
             </label>
           </div>
         </div>
-        <div class="text-end">
-          <base-button mode="outline">Cancel</base-button>
+        <div class="d-flex justify-content-end">
+          <base-button
+            class="pt-2 text-center"
+            mode="outline"
+            :link="true"
+            to="/user-welcome"
+            >Cancel</base-button
+          >
           <base-button>Post</base-button>
         </div>
       </form>
@@ -269,8 +275,13 @@ export default {
         const drLogEntry = [];
         amtBoxes.forEach((box) => {
           if (box.value !== "") {
+            const branchID = box.id.substring(0, 4);
+            const brDetails = this.branches.find((br) => br.id == branchID);
+
             const newEntry = {
-              br: box.id.substring(0, 4),
+              br: branchID,
+              ledger: brDetails.ledger,
+              banksCode: brDetails.banksCode,
               amt: box.value,
             };
             drLogEntry.push(newEntry);
@@ -303,8 +314,13 @@ export default {
 
       const drLogEntry = [];
       amtBoxes.forEach((box) => {
+        const branchID = box.id.substring(0, 4);
+        const brDetails = this.branches.find((br) => br.id == branchID);
+
         const newEntry = {
-          br: box.id.substring(0, 4),
+          br: branchID,
+          ledger: brDetails.ledger,
+          banksCode: brDetails.banksCode,
           amt: box.value,
         };
 
@@ -345,6 +361,7 @@ export default {
           narration: this.narration,
           id: `FT${Date.now()}`,
           txnTime: txnTime,
+          evenShare: this.evenShareStat,
         };
 
         try {

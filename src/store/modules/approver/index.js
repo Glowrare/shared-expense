@@ -8,6 +8,7 @@ export default {
     return {
       pendingTxns: [],
       approvedTxns: [],
+      currentTxn: {},
     };
   },
   mutations,

@@ -53,8 +53,6 @@ export default {
       username: "",
       password: "",
       formIsValid: true,
-      // loginError: false,
-      // loginErrorMessage: ""
     };
   },
   computed: {
@@ -72,9 +70,6 @@ export default {
         this.formIsValid = false;
         return;
       }
-
-      // this.isLoading = true;
-
       const actionPayload = {
         username: this.username,
         password: this.password,
@@ -94,8 +89,6 @@ export default {
       } catch (err) {
         this.error = err.message || "Failed to authenticate. Please try later.";
       }
-
-      // this.isLoading = false;
     },
   },
 };

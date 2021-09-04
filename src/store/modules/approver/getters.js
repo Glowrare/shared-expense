@@ -5,4 +5,7 @@ export default {
   approvedTxns(state) {
     return state.approvedTxns;
   },
+  currentTxn(state) {
+    return state.currentTxn;
+  },
 };

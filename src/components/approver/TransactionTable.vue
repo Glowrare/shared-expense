@@ -22,7 +22,12 @@
             <td>{{ txn.initiatorDetails.username }}</td>
             <td>{{ txn.txnTime }}</td>
             <td>
-              <button type="button" class="bare-red-btn-format" :id="txn.id">
+              <button
+                type="button"
+                class="bare-red-btn-format"
+                :id="txn.id"
+                @click="$emit('view-transaction', txn.id)"
+              >
                 View Details
               </button>
             </td>
@@ -46,6 +51,7 @@ export default {
       required: true,
     },
   },
+  emits: ["view-transaction"],
 };
 </script>
 
