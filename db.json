@@ -296,6 +296,68 @@
       "txnTime": "04/09/2021 20:30",
       "evenShare": "no",
       "status": "rejected"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "15000",
+      "txnDetails": [
+        {
+          "br": "2071",
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
+          "amt": "2500"
+        },
+        {
+          "br": "2072",
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
+          "amt": "2500"
+        },
+        {
+          "br": "2077",
+          "ledger": "NGN1281410002077",
+          "banksCode": "418",
+          "amt": "2500"
+        },
+        {
+          "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "2500"
+        },
+        {
+          "br": "2074",
+          "ledger": "NGN1281410002074",
+          "banksCode": "413",
+          "amt": "2500"
+        },
+        {
+          "br": "2083",
+          "ledger": "NGN1281410002083",
+          "banksCode": "409",
+          "amt": "2500"
+        }
+      ],
+      "id": "FT1630796057746",
+      "narration": "Fuel for regional gen",
+      "txnTime": "04/09/2021 23:54",
+      "evenShare": "yes",
+      "status": "pending"
     }
   ]
 }

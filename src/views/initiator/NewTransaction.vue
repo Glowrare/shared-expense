@@ -247,6 +247,8 @@ export default {
       console.log(id);
       this.debitBranches = this.debitBranches.filter((br) => br !== id);
       console.log(this.debitBranches);
+
+      document.getElementById(id.substring(0, 4)).remove();
     },
     shareEvenAmt() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
