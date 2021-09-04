@@ -59,10 +59,7 @@ export default {
       type: Boolean,
     },
   },
-  methods: {
-    deleteItem() {},
-  },
-  emits: ["delete-item"],
+  emits: ["delete-item-one"],
 };
 </script>
 

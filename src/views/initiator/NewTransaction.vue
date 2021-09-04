@@ -20,7 +20,7 @@
               :branch="branch"
               v-for="branch in defaultBranches"
               :key="branch.id"
-              @delete-item-one="deleteItem"
+              @delete-item-one="deleteItemOne"
             ></default-branch-field>
           </div>
         </div>
@@ -249,6 +249,14 @@ export default {
       console.log(this.debitBranches);
 
       document.getElementById(id.substring(0, 4)).remove();
+      if (this.evenShareStat === "yes") {
+        this.apportioner();
+      } else if (this.evenShareStat === "no") {
+        this.checkTotal();
+      }
+    },
+    deleteItemOne(id) {
+      this.deleteItem(id);
     },
     shareEvenAmt() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
@@ -271,7 +279,9 @@ export default {
       });
 
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
-      this.total = boxValues.reduce(reducer);
+      if (boxValues.length) {
+        this.total = boxValues.reduce(reducer);
+      }
 
       if (this.total == this.sharedAmount) {
         const drLogEntry = [];
