@@ -227,7 +227,7 @@
       "narration": "test",
       "txnTime": "04/09/2021 20:26",
       "evenShare": "yes",
-      "status": "pending"
+      "status": "approved"
     },
     {
       "initiatorDetails": {
@@ -295,7 +295,7 @@
       "narration": "CBN Cash swap",
       "txnTime": "04/09/2021 20:30",
       "evenShare": "no",
-      "status": "pending"
+      "status": "rejected"
     }
   ]
 }

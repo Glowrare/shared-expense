@@ -18,7 +18,7 @@
           <div>
             <slot></slot>
           </div>
-          <div>
+          <div v-if="singleButton">
             <base-button
               type="button"
               class="outline"
@@ -27,6 +27,20 @@
               @click="$emit('close-modal')"
               >{{ btnText }}</base-button
             >
+          </div>
+
+          <div v-else>
+            <base-button
+              type="button"
+              class="outline mb-3"
+              data-dismiss="modal"
+              aria-label="Close"
+              @click="$emit('close-modal')"
+              >{{ btnText }}</base-button
+            >
+            <base-button type="button" @click="$emit('proceed')">{{
+              proceedText
+            }}</base-button>
           </div>
         </div>
       </div>
@@ -38,17 +52,26 @@
 <script>
 export default {
   props: {
+    singleButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     btnText: {
       type: String,
       required: false,
       default: "Close",
+    },
+    proceedText: {
+      type: String,
+      required: false,
     },
     active: {
       type: Boolean,
       default: false,
     },
   },
-  emits: ["close-modal"],
+  emits: ["close-modal", "proceed"],
 };
 </script>
 

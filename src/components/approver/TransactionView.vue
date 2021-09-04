@@ -3,7 +3,7 @@
     <base-card>
       <form
         class="py-4 px-2"
-        @submit.prevent="$emit('approveTransaction', approvalStat)"
+        @submit.prevent="$emit('approve-transaction', approvalStat)"
       >
         <h3 class="mb-5 text-center">Shared Expense</h3>
 
@@ -167,10 +167,8 @@
           </div>
         </div>
         <div class="text-end">
-          <base-button mode="outline" @click="rejectTransaction"
-            >Reject</base-button
-          >
-          <base-button @click="approveTransaction">Approve</base-button>
+          <base-button mode="outline" @click="reject">Reject</base-button>
+          <base-button @click="approve">Approve</base-button>
         </div>
       </form>
     </base-card>
@@ -186,14 +184,14 @@ export default {
   },
   props: ["debitBranches", "transaction", "evenShare"],
   methods: {
-    rejectTransaction() {
+    reject() {
       this.approvalStat = "reject";
     },
-    approveTransaction() {
+    approve() {
       this.approvalStat = "approve";
     },
   },
-  emits: ["approveTransaction"],
+  emits: ["approve-transaction"],
 };
 </script>
 
