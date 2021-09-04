@@ -10,7 +10,6 @@ export default {
       loginError: false,
       loginErrorMessage: "",
       isAuthenticated: false,
-      // didAutoLogout: false
     };
   },
   mutations,

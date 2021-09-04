@@ -9,7 +9,6 @@ export default {
       `http://localhost:3000/users/${payload.username}`
     );
     const responseData = await response.json();
-    console.log(responseData);
     if (response.ok && payload.password === responseData.password) {
       console.log("Successful Login");
       context.commit("authenticationStatus", true);
