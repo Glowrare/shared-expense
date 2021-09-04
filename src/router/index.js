@@ -4,6 +4,8 @@ import UserAuth from "../views/auth/UserAuth.vue";
 import UserWelcome from "../views/initiator/UserWelcome.vue";
 import NewTransaction from "../views/initiator/NewTransaction.vue";
 import PostSuccess from "../views/initiator/PostSuccess.vue";
+import PendingApprovals from "../views/approver/PendingApprovals.vue";
+import ViewTransaction from "../views/approver/ViewTransaction.vue";
 
 // import store from "../store/index.js";
 
@@ -29,6 +31,18 @@ const routes = [
     path: "/post-successful",
     name: "Post Success",
     component: PostSuccess,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/pending-approvals",
+    name: "Pending Approvals",
+    component: PendingApprovals,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/view-transactions",
+    name: "View Transactions",
+    component: ViewTransaction,
     meta: { requiresAuth: true },
   },
   // {

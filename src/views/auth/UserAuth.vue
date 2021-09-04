@@ -84,7 +84,12 @@ export default {
         await this.$store.dispatch("auth/login", actionPayload);
         // const redirectUrl = `*/${this.$route.query.redirect || 'coaches'}`;
         if (!this.loginError) {
-          this.$router.replace("/user-welcome");
+          const userDetails = this.$store.getters["auth/userDetails"];
+          if (userDetails.approvalLevel === "0") {
+            this.$router.replace("/user-welcome");
+          } else if (userDetails.approvalLevel === "1") {
+            this.$router.replace("/pending-approvals");
+          }
         }
       } catch (err) {
         this.error = err.message || "Failed to authenticate. Please try later.";

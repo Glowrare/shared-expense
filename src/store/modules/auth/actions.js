@@ -1,20 +1,5 @@
 export default {
-  // async login(context, payload) {
   async login(context, payload) {
-    // const response = await fetch("http://localhost:3000/users", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     username: payload.username,
-    //     password: payload.password,
-    //     // username: "aladejubeloea",
-    //     // password: "passwordSample@1",
-    //     // returnSecureToken: true
-    //   }),
-    // });
-
     context.commit("loginError", {
       loginError: false,
       loginErrorMessage: "",

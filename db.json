@@ -209,7 +209,7 @@
       ],
       "id": "FT1630746080828",
       "narration": "fuel",
-      "txnTime": "4/9/2021 10:1",
+      "txnTime": "4/9/2021 10:01",
       "status": "pending"
     },
     {
@@ -266,7 +266,7 @@
       ],
       "id": "FT1630746158351",
       "narration": "Cash swap",
-      "txnTime": "4/9/2021 10:2",
+      "txnTime": "4/9/2021 10:02",
       "status": "pending"
     },
     {
@@ -319,7 +319,7 @@
       ],
       "id": "FT1630746188583",
       "narration": "Out of station allowance for RSM",
-      "txnTime": "4/9/2021 10:3",
+      "txnTime": "4/9/2021 10:03",
       "status": "pending"
     }
   ]

@@ -317,9 +317,26 @@ export default {
       if (this.total == this.sharedAmount || this.evenShareStat === "yes") {
         const fullDate = new Date();
 
-        const txnTime = `${fullDate.getDate()}/${
-          fullDate.getMonth() + 1
-        }/${fullDate.getFullYear()} ${fullDate.getHours()}:${fullDate.getMinutes()}`;
+        // Format date with zeroes
+        let day = fullDate.getDate();
+        if (day <= 9) {
+          day = `0${day}`;
+        }
+        let month = fullDate.getMonth() + 1;
+        if (month <= 9) {
+          month = `0${month}`;
+        }
+
+        let minutes = fullDate.getMinutes();
+        if (minutes <= 9) {
+          minutes = `0${minutes}`;
+        }
+        let hours = fullDate.getHours();
+        if (hours <= 9) {
+          hours = `0${hours}`;
+        }
+
+        const txnTime = `${day}/${month}/${fullDate.getFullYear()} ${hours}:${minutes}`;
 
         const postDetails = {
           user: this.userDetails,
