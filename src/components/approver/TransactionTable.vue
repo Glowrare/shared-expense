@@ -10,6 +10,7 @@
             <th>Narration</th>
             <th>Teller ID</th>
             <th>Transaction time</th>
+            <th>Status</th>
             <th></th>
           </tr>
         </thead>
@@ -17,10 +18,21 @@
           <tr v-for="(txn, index) in pendingTxns" :key="txn.id">
             <td>{{ index + 1 }}</td>
             <td>{{ txn.id }}</td>
-            <td>{{ txn.totalAmount.toLocaleString() }}</td>
+            <td>{{ txn.totalAmount }}</td>
             <td>{{ txn.narration }}</td>
             <td>{{ txn.initiatorDetails.username }}</td>
             <td>{{ txn.txnTime }}</td>
+            <td>
+              <span
+                :class="
+                  txn.status === 'approved' ? 'text-success' : 'text-danger'
+                "
+                class="fw-bold"
+                >{{
+                  txn.status.charAt(0).toUpperCase() + txn.status.slice(1)
+                }}</span
+              >
+            </td>
             <td>
               <button
                 type="button"

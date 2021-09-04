@@ -10,7 +10,9 @@ export default {
       otherBranches: [],
       drBranchLog: [],
       postID: "",
-      // defaultBranches: {},
+      pendingTxns: [],
+      approvedTxns: [],
+      currentTxn: {},
     };
   },
   mutations,

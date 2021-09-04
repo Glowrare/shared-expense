@@ -166,7 +166,7 @@
             </label>
           </div>
         </div>
-        <div class="text-end">
+        <div class="text-end" v-if="approvalMode">
           <base-button mode="outline" @click="reject">Reject</base-button>
           <base-button @click="approve">Approve</base-button>
         </div>
@@ -182,7 +182,7 @@ export default {
       approvalStat: "",
     };
   },
-  props: ["debitBranches", "transaction", "evenShare"],
+  props: ["debitBranches", "transaction", "evenShare", "approvalMode"],
   methods: {
     reject() {
       this.approvalStat = "reject";

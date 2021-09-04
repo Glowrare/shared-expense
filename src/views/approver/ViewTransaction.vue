@@ -9,6 +9,7 @@
     >
   </div>
   <TransactionView
+    :approvalMode="true"
     :transaction="transaction"
     :debitBranches="transaction.txnDetails"
     :evenShare="evenShare"

@@ -11,11 +11,13 @@
         <base-button
           :link="true"
           class="d-flex align-items-center justify-content-center mb-3"
+          to="/pending-requests"
           >Pending requests</base-button
         >
         <base-button
           :link="true"
           class="d-flex align-items-center justify-content-center mb-3"
+          to="/transaction-history"
           >Transaction History</base-button
         >
       </div>

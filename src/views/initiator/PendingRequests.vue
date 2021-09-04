@@ -1,7 +1,11 @@
 <template>
-  <div class="text-end">
-    <router-link to="/approval-history" class="text-danger text-decoration-none"
-      >Transaction History</router-link
+  <div class="text-center mt-3 mb-4">
+    <base-button
+      :link="true"
+      to="/user-welcome"
+      mode="outline"
+      class="text-uppercase pt-2"
+      >Home</base-button
     >
   </div>
   <div>
@@ -15,21 +19,21 @@
 <script>
 import TransactionTable from "../../components/approver/TransactionTable.vue";
 export default {
-  name: "Pending Approvals",
+  name: "Pending Requests",
   components: { TransactionTable },
   computed: {
     pendingTxns() {
-      return this.$store.getters["approver/pendingTxns"];
+      return this.$store.getters["initiator/pendingTxns"];
     },
   },
   created() {
-    this.$store.dispatch("approver/fetchPendingTransactions");
+    this.$store.dispatch("initiator/fetchPendingTransactions");
   },
   methods: {
     viewTransaction(id) {
       const selectedTxn = this.pendingTxns.find((txn) => txn.id == id);
-      this.$store.commit("approver/currentTxn", selectedTxn);
-      this.$router.replace("/view-transaction");
+      this.$store.commit("initiator/currentTxn", selectedTxn);
+      this.$router.replace("/view-details");
     },
   },
 };
