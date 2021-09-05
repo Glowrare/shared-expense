@@ -42,11 +42,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      // shrdAmountDefault: null,
-    };
-  },
   props: {
     value: {
       type: Number,

@@ -134,14 +134,26 @@
                 position-relative
               "
             >
-              <span>Click to upload approval document here</span>
-              <span
+              <span v-show="noUpload"
+                >Click to upload approval document here</span
+              >
+              <span v-show="noUpload"
                 ><img
                   src="../../assets/upload_icon.svg"
                   class="img-fluid"
                   alt=""
               /></span>
-              <input type="file" class="form-control position-absolute" />
+              <p
+                class="mb-0 fw-bold text-nowrap overflow-hidden file-name"
+                v-show="!noUpload"
+              >
+                {{ fileName }}
+              </p>
+              <input
+                type="file"
+                class="form-control position-absolute"
+                @change="getFileName"
+              />
             </label>
           </div>
         </div>
@@ -201,6 +213,8 @@ export default {
       narration: "",
       disparity: null,
       active: false,
+      fileName: "",
+      noUpload: true,
     };
   },
   computed: {
@@ -366,6 +380,14 @@ export default {
 
         const txnTime = `${day}/${month}/${fullDate.getFullYear()} ${hours}:${minutes}`;
 
+        //File name
+        let upLoadFileName = "";
+        if (this.fileName == "") {
+          upLoadFileName = "No file uploaded";
+        } else {
+          upLoadFileName = this.fileName;
+        }
+
         const postDetails = {
           user: this.userDetails,
           drLogEntry: this.$store.getters["initiator/drBranchLog"],
@@ -374,6 +396,8 @@ export default {
           id: `FT${Date.now()}`,
           txnTime: txnTime,
           evenShare: this.evenShareStat,
+          noUpload: this.noUpload,
+          fileName: upLoadFileName,
         };
 
         try {
@@ -393,6 +417,15 @@ export default {
       const body = document.querySelector("body");
       this.active = !this.active;
       body.classList.remove("modal-open", "overflow-hidden");
+    },
+    getFileName(event) {
+      if (event.target.files[0]) {
+        this.fileName = event.target.files[0].name;
+        this.noUpload = false;
+      } else {
+        this.noUpload = true;
+        this.fileName = "";
+      }
     },
   },
 };
@@ -437,5 +470,8 @@ export default {
   top: 0;
   bottom: 0;
   right: 0;
+}
+.file-name {
+  text-overflow: ellipsis;
 }
 </style>

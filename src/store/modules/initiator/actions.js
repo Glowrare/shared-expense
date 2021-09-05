@@ -39,6 +39,8 @@ export default {
         narration: payload.narration,
         txnTime: payload.txnTime,
         evenShare: payload.evenShare,
+        noUpload: payload.noUpload,
+        fileName: payload.fileName,
         status: "pending",
       }),
     });

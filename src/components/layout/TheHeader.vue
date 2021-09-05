@@ -34,7 +34,7 @@ export default {
   name: "Header",
   computed: {
     isLoggedIn() {
-      if (this.$route.name.includes("Login")) {
+      if (this.$route.path.endsWith("/")) {
         return false;
       } else {
         return true;

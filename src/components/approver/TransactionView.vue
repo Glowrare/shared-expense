@@ -32,9 +32,9 @@
               <div class="col-auto col-sm-3">
                 <label class="form-label visually-hidden">Amount</label>
                 <input
-                  type="number"
+                  type="text"
                   class="form-control pry-input-border sharedAmtBox"
-                  :value="branch.amt"
+                  :value="Number(branch.amt).toLocaleString()"
                   disabled
                 />
               </div>
@@ -48,7 +48,7 @@
             <label class="form-label visually-hidden">Total Amount</label>
             <input
               type="text"
-              :value="transaction.totalAmount"
+              :value="Number(transaction.totalAmount).toLocaleString()"
               class="form-control pry-input-border"
               disabled
             />
@@ -61,7 +61,7 @@
             <input
               type="text"
               class="form-control pry-input-border"
-              :value="transaction.totalAmount"
+              :value="Number(transaction.totalAmount).toLocaleString()"
               disabled
             />
           </div>
@@ -151,13 +151,9 @@
                 position-relative
               "
             >
-              <span>Click to upload approval document here</span>
-              <span
-                ><img
-                  src="../../assets/upload_icon.svg"
-                  class="img-fluid"
-                  alt=""
-              /></span>
+              <p class="mb-0 fw-bold text-nowrap overflow-hidden file-name">
+                {{ transaction.fileName }}
+              </p>
               <input
                 type="file"
                 class="form-control position-absolute"

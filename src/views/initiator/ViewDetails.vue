@@ -2,7 +2,7 @@
   <div class="text-center mt-3 mb-4">
     <base-button
       :link="true"
-      to="/transaction-history"
+      :to="goBackRoute"
       mode="outline"
       class="text-uppercase pt-2"
       >Go Back</base-button
@@ -31,6 +31,13 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    goBackRoute() {
+      if (this.transaction.status == "pending") {
+        return "/pending-requests";
+      } else {
+        return "/transaction-history";
       }
     },
   },
