@@ -21,6 +21,7 @@
               v-for="branch in defaultBranches"
               :key="branch.id"
               @delete-item-one="deleteItemOne"
+              @check-total-one="checkTotalOne"
             ></default-branch-field>
           </div>
         </div>
@@ -31,6 +32,7 @@
               :key="index"
               :is="component"
               @delete-item="deleteItem"
+              @check-total-other="checkTotalOther"
             />
           </div>
         </div>
@@ -282,6 +284,7 @@ export default {
       amtBoxes.forEach((box) => box.removeAttribute("disabled"));
     },
     checkTotal() {
+      console.log("Started");
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       const boxValues = [];
 
@@ -316,6 +319,12 @@ export default {
 
         this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
       }
+    },
+    checkTotalOne() {
+      this.checkTotal();
+    },
+    checkTotalOther() {
+      this.checkTotal();
     },
     apportioner() {
       const branchesCount = this.debitBranches.length;

@@ -25,6 +25,7 @@
         class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
         :id="`${branch.id}-amt`"
+        @blur="$emit('check-total-one')"
       />
     </div>
     <div class="col-auto col-sm-2">
@@ -54,7 +55,7 @@ export default {
       type: Boolean,
     },
   },
-  emits: ["delete-item-one"],
+  emits: ["delete-item-one", "check-total-one"],
 };
 </script>
 

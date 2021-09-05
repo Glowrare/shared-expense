@@ -28,6 +28,7 @@
         class="form-control pry-input-border sharedAmtBox"
         placeholder="0"
         :id="`${branch.id}-amt`"
+        @blur="$emit('check-total-other')"
       />
     </div>
     <div class="col-auto col-sm-2">
@@ -73,7 +74,7 @@ export default {
       this.$store.dispatch("initiator/updateOtherBranches", this.branch.id);
     },
   },
-  emits: ["delete-item"],
+  emits: ["delete-item", "check-total-other"],
 };
 </script>
 
