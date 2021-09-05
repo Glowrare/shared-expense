@@ -7,54 +7,6 @@
       >
         <h3 class="mb-5 text-center">Shared Expense</h3>
 
-        <p class="mb-1">Confirm branches to debit</p>
-        <div class="row">
-          <div class="col-12" v-for="branch in debitBranches" :key="branch.br">
-            <div class="row mb-3 gx-2">
-              <div class="col-auto col-sm-2">
-                <label class="form-label visually-hidden">Branch Code</label>
-                <input
-                  type="text"
-                  class="form-control pry-input-border"
-                  :value="branch.banksCode"
-                  disabled
-                />
-              </div>
-              <div class="col-auto col-sm-5">
-                <label class="form-label visually-hidden">Branch Code</label>
-                <input
-                  type="text"
-                  class="form-control pry-input-border"
-                  :value="branch.ledger"
-                  disabled
-                />
-              </div>
-              <div class="col-auto col-sm-3">
-                <label class="form-label visually-hidden">Amount</label>
-                <input
-                  type="text"
-                  class="form-control pry-input-border sharedAmtBox"
-                  :value="Number(branch.amt).toLocaleString()"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-3 gx-2">
-          <div class="d-none d-sm-block col-auto col-sm-2"></div>
-          <div class="d-none d-sm-block col-auto col-sm-5"></div>
-          <div class="col-auto col-sm-3 mt-3 mt-sm-0">
-            <label class="form-label visually-hidden">Total Amount</label>
-            <input
-              type="text"
-              :value="Number(transaction.totalAmount).toLocaleString()"
-              class="form-control pry-input-border"
-              disabled
-            />
-          </div>
-          <div class="col-auto col-sm-2"></div>
-        </div>
         <div class="row">
           <div class="col-12 col-md-6 mb-3">
             <label class="form-label mb-1">Enter total amount to share</label>
@@ -122,6 +74,54 @@
               </div>
             </div>
           </div>
+        </div>
+        <p class="mb-1">Confirm branches to debit</p>
+        <div class="row">
+          <div class="col-12" v-for="branch in debitBranches" :key="branch.br">
+            <div class="row mb-3 gx-2">
+              <div class="col-auto col-sm-2">
+                <label class="form-label visually-hidden">Branch Code</label>
+                <input
+                  type="text"
+                  class="form-control pry-input-border"
+                  :value="branch.banksCode"
+                  disabled
+                />
+              </div>
+              <div class="col-auto col-sm-5">
+                <label class="form-label visually-hidden">Branch Code</label>
+                <input
+                  type="text"
+                  class="form-control pry-input-border"
+                  :value="branch.ledger"
+                  disabled
+                />
+              </div>
+              <div class="col-auto col-sm-3">
+                <label class="form-label visually-hidden">Amount</label>
+                <input
+                  type="text"
+                  class="form-control pry-input-border sharedAmtBox"
+                  :value="Number(branch.amt).toLocaleString()"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 gx-2">
+          <div class="d-none d-sm-block col-auto col-sm-2"></div>
+          <div class="d-none d-sm-block col-auto col-sm-5"></div>
+          <div class="col-auto col-sm-3 mt-3 mt-sm-0">
+            <label class="form-label visually-hidden">Total Amount</label>
+            <input
+              type="text"
+              :value="Number(transaction.totalAmount).toLocaleString()"
+              class="form-control pry-input-border"
+              disabled
+            />
+          </div>
+          <div class="col-auto col-sm-2"></div>
         </div>
         <div class="row mb-3">
           <div class="col-12">
@@ -219,5 +219,8 @@ export default {
   top: 0;
   bottom: 0;
   right: 0;
+}
+.file-name {
+  text-overflow: ellipsis;
 }
 </style>

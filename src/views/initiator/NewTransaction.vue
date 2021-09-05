@@ -13,50 +13,6 @@
       <form class="py-4 px-2" @submit.prevent="postTransaction">
         <h3 class="mb-5 text-center">Shared Expense</h3>
 
-        <p class="mb-1">Confirm branches to debit</p>
-        <div class="row">
-          <div class="col-12">
-            <default-branch-field
-              :branch="branch"
-              v-for="branch in defaultBranches"
-              :key="branch.id"
-              @delete-item-one="deleteItemOne"
-              @check-total-one="checkTotalOne"
-            ></default-branch-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <component
-              v-for="(component, index) in components"
-              :key="index"
-              :is="component"
-              @delete-item="deleteItem"
-              @check-total-other="checkTotalOther"
-            />
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col">
-            <button @click.prevent="addNewField" class="add-more-btn">
-              Add More
-            </button>
-          </div>
-        </div>
-        <div class="row mb-3 gx-2">
-          <div class="d-none d-sm-block col-auto col-sm-2"></div>
-          <div class="d-none d-sm-block col-auto col-sm-5"></div>
-          <div class="col-auto col-sm-3 mt-3 mt-sm-0">
-            <label class="form-label visually-hidden">Total Amount</label>
-            <input
-              type="text"
-              :value="total"
-              class="form-control pry-input-border"
-              disabled
-            />
-          </div>
-          <div class="col-auto col-sm-2"></div>
-        </div>
         <div class="row">
           <div class="col-12 col-md-6 mb-3">
             <label class="form-label mb-1">Enter total amount to share</label>
@@ -106,6 +62,52 @@
               </div>
             </div>
           </div>
+        </div>
+        <p class="mb-1">Confirm branches to debit</p>
+        <div class="row">
+          <div class="col-12">
+            <default-branch-field
+              :branch="branch"
+              v-for="branch in defaultBranches"
+              :key="branch.id"
+              @delete-item-one="deleteItemOne"
+              @check-total-one="checkTotalOne"
+            ></default-branch-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <component
+              v-for="(component, index) in components"
+              :key="index"
+              :is="component"
+              :evenShareStat="evenShareStat"
+              :apportioner="apportioner"
+              @delete-item="deleteItem"
+              @check-total-other="checkTotalOther"
+            />
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <button @click.prevent="addNewField" class="add-more-btn">
+              Add More
+            </button>
+          </div>
+        </div>
+        <div class="row mb-3 gx-2">
+          <div class="d-none d-sm-block col-auto col-sm-2"></div>
+          <div class="d-none d-sm-block col-auto col-sm-5"></div>
+          <div class="col-auto col-sm-3 mt-3 mt-sm-0">
+            <label class="form-label visually-hidden">Total Amount</label>
+            <input
+              type="text"
+              :value="total"
+              class="form-control pry-input-border"
+              disabled
+            />
+          </div>
+          <div class="col-auto col-sm-2"></div>
         </div>
         <div class="row mb-3">
           <div class="col-12">
@@ -209,7 +211,7 @@ export default {
       total: 0,
       components: [],
       sharedAmount: null,
-      evenShareStat: "",
+      evenShareStat: "yes",
       debitBranches: [],
       startAmt: null,
       narration: "",
@@ -240,14 +242,17 @@ export default {
     },
   },
   watch: {
-    defaultBranches(newVal, oldVal) {
-      console.log(oldVal);
+    defaultBranches(newVal) {
+      // console.log(oldVal);
       this.debitBranches = newVal.map((br) => br.id);
     },
-    addedBranchesLen(newVal, oldVal) {
-      console.log(oldVal);
+    addedBranchesLen(newVal) {
+      // console.log(oldVal);
       const newEntry = this.addedBranches[newVal - 1];
-      this.debitBranches.push(newEntry);
+      const existing = this.addedBranches.find((br) => br === newEntry);
+      if (!existing) {
+        this.debitBranches.push(newEntry);
+      }
     },
   },
   created() {
@@ -255,14 +260,10 @@ export default {
   },
   methods: {
     addNewField() {
-      console.log(this.debitBranches);
-      console.log(this.$store.getters["initiator/otherBranches"]);
       this.components.push(NewBranchField);
     },
     deleteItem(id) {
-      console.log(id);
       this.debitBranches = this.debitBranches.filter((br) => br !== id);
-      console.log(this.debitBranches);
 
       document.getElementById(id.substring(0, 4)).remove();
       if (this.evenShareStat === "yes") {
@@ -284,7 +285,6 @@ export default {
       amtBoxes.forEach((box) => box.removeAttribute("disabled"));
     },
     checkTotal() {
-      console.log("Started");
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       const boxValues = [];
 
@@ -298,6 +298,9 @@ export default {
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       if (boxValues.length) {
         this.total = boxValues.reduce(reducer);
+      }
+      if (this.evenShareStat === "yes") {
+        this.apportioner();
       }
 
       if (this.total == this.sharedAmount) {

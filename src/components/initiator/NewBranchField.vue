@@ -6,6 +6,7 @@
         aria-label="Branch Code"
         v-model="selBranch"
         @change="getBranchDetails"
+        @blur="recalculate"
       >
         <option v-for="branch in otherBranches" :key="branch.id">
           {{ branch.banksCode }}
@@ -29,6 +30,7 @@
         placeholder="0"
         :id="`${branch.id}-amt`"
         @blur="$emit('check-total-other')"
+        disabled
       />
     </div>
     <div class="col-auto col-sm-2">
@@ -73,7 +75,13 @@ export default {
       this.branch = branchFullDetails;
       this.$store.dispatch("initiator/updateOtherBranches", this.branch.id);
     },
+    recalculate() {
+      if (this.evenShareStat === "yes") {
+        this.apportioner();
+      }
+    },
   },
+  props: ["evenShareStat", "apportioner"],
   emits: ["delete-item", "check-total-other"],
 };
 </script>

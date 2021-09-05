@@ -10,11 +10,9 @@ export default {
     );
     const responseData = await response.json();
     if (response.ok && payload.password === responseData.password) {
-      console.log("Successful Login");
       context.commit("authenticationStatus", true);
       context.commit("setUser", responseData);
     } else {
-      console.log("Incorrect details");
       context.commit("loginError", {
         loginError: true,
         loginErrorMessage: "Incorrect details",

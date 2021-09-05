@@ -18,7 +18,7 @@
           <tr v-for="(txn, index) in pendingTxns" :key="txn.id">
             <td>{{ index + 1 }}</td>
             <td>{{ txn.id }}</td>
-            <td>{{ txn.totalAmount }}</td>
+            <td>{{ Number(txn.totalAmount).toLocaleString() }}</td>
             <td>{{ txn.narration }}</td>
             <td>{{ txn.initiatorDetails.username }}</td>
             <td>{{ txn.txnTime }}</td>
