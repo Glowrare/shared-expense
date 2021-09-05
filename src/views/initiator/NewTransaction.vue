@@ -267,7 +267,7 @@ export default {
       document.getElementById(id.substring(0, 4)).remove();
       if (this.evenShareStat === "yes") {
         this.apportioner();
-      } else if (this.evenShareStat === "no") {
+      } else {
         this.checkTotal();
       }
     },
@@ -339,12 +339,15 @@ export default {
 
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
 
-      amtBoxes.forEach((box) => box.setAttribute("value", baseAmt));
+      //First, clear the box
+      amtBoxes.forEach((box) => (box.value = 0));
+
+      amtBoxes.forEach((box) => (box.value = baseAmt));
       const difference = parseFloat((drAmount - baseTotal).toFixed(2));
 
       if (difference !== 0) {
         const lastAmt = baseAmt + difference;
-        amtBoxes[amtBoxes.length - 1].setAttribute("value", lastAmt);
+        amtBoxes[amtBoxes.length - 1].value = parseFloat(lastAmt.toFixed(2));
       }
 
       const drLogEntry = [];

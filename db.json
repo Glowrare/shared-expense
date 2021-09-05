@@ -562,6 +562,64 @@
       "noUpload": true,
       "fileName": "No file uploaded",
       "status": "approved"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "22000",
+      "txnDetails": [
+        {
+          "br": "2071",
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
+          "amt": "4400"
+        },
+        {
+          "br": "2072",
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
+          "amt": "4400"
+        },
+        {
+          "br": "2075",
+          "ledger": "NGN1281410002075",
+          "banksCode": "416",
+          "amt": "4400"
+        },
+        {
+          "br": "2076",
+          "ledger": "NGN1281410002076",
+          "banksCode": "417",
+          "amt": "4400"
+        },
+        {
+          "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "4400"
+        }
+      ],
+      "id": "FT1630853496558",
+      "narration": "test again",
+      "txnTime": "05/09/2021 15:51",
+      "evenShare": "yes",
+      "noUpload": true,
+      "fileName": "No file uploaded",
+      "status": "pending"
     }
   ]
 }
