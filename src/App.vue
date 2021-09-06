@@ -38,7 +38,7 @@ export default {
 .pry-input-border:focus {
   border-color: inherit;
   border-width: 2px;
-  box-shadow: var(--slight-red-shadow);
+  box-shadow: 2px 5px 10px var(--pale-red);
 }
 .pry-input-border:disabled {
   border-color: var(--pale-red);

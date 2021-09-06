@@ -84,6 +84,8 @@ export default {
             this.$router.replace("/user-welcome");
           } else if (userDetails.approvalLevel === "1") {
             this.$router.replace("/pending-approvals");
+          } else if (userDetails.approvalLevel === "4") {
+            this.$router.replace("/control-welcome");
           }
         }
       } catch (err) {

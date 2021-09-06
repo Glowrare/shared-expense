@@ -243,11 +243,9 @@ export default {
   },
   watch: {
     defaultBranches(newVal) {
-      // console.log(oldVal);
       this.debitBranches = newVal.map((br) => br.id);
     },
     addedBranchesLen(newVal) {
-      // console.log(oldVal);
       const newEntry = this.addedBranches[newVal - 1];
       const existing = this.addedBranches.find((br) => br === newEntry);
       if (!existing) {
