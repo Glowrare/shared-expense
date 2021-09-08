@@ -82,7 +82,6 @@
               :key="index"
               :is="component"
               :evenShareStat="evenShareStat"
-              :apportioner="apportioner"
               @delete-item="deleteItem"
               @check-total-other="checkTotalOther"
             />
@@ -95,7 +94,7 @@
             </button>
           </div>
         </div>
-        <div class="row mb-3 gx-2">
+        <div class="row mb-3 gx-2" v-if="evenStat">
           <div class="d-none d-sm-block col-auto col-sm-2"></div>
           <div class="d-none d-sm-block col-auto col-sm-5"></div>
           <div class="col-auto col-sm-3 mt-3 mt-sm-0">
@@ -103,6 +102,20 @@
             <input
               type="text"
               :value="total"
+              class="form-control pry-input-border"
+              disabled
+            />
+          </div>
+          <div class="col-auto col-sm-2"></div>
+        </div>
+        <div class="row mb-3 gx-2" v-else>
+          <div class="d-none d-sm-block col-auto col-sm-2"></div>
+          <div class="d-none d-sm-block col-auto col-sm-5"></div>
+          <div class="col-auto col-sm-3 mt-3 mt-sm-0">
+            <label class="form-label visually-hidden">Total Amount</label>
+            <input
+              type="text"
+              :value="originTotal"
               class="form-control pry-input-border"
               disabled
             />
@@ -186,7 +199,11 @@
         shared.
       </p>
       <p>
-        Difference: <span class="fw-bold text-danger">{{ disparity }}</span>
+        Difference:
+        <span
+          :class="overage ? 'fw-bold text-success' : 'fw-bold text-danger'"
+          >{{ disparity }}</span
+        >
       </p>
     </template>
   </base-dialog>
@@ -209,6 +226,7 @@ export default {
   data() {
     return {
       total: 0,
+      originTotal: 0,
       components: [],
       sharedAmount: null,
       evenShareStat: "yes",
@@ -219,6 +237,7 @@ export default {
       active: false,
       fileName: "",
       noUpload: true,
+      overage: null,
     };
   },
   computed: {
@@ -240,6 +259,13 @@ export default {
     addedBranchesLen() {
       return this.addedBranches.length;
     },
+    evenStat() {
+      if (this.evenShareStat === "yes") {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   watch: {
     defaultBranches(newVal) {
@@ -247,10 +273,16 @@ export default {
     },
     addedBranchesLen(newVal) {
       const newEntry = this.addedBranches[newVal - 1];
-      const existing = this.addedBranches.find((br) => br === newEntry);
+      const previousState = this.addedBranches.slice(0, newVal - 1);
+      const existing = previousState.some((br) => br === newEntry);
       if (!existing) {
         this.debitBranches.push(newEntry);
       }
+      setTimeout(() => {
+        if (this.evenShareStat === "yes") {
+          this.apportioner();
+        }
+      }, 0);
     },
   },
   created() {
@@ -259,9 +291,15 @@ export default {
   methods: {
     addNewField() {
       this.components.push(NewBranchField);
+      if (this.evenShareStat !== "yes") {
+        this.enableAmtInput();
+      }
     },
     deleteItem(id) {
       this.debitBranches = this.debitBranches.filter((br) => br !== id);
+      // const otherBranches = this.addedBranches.filter((br) => br !== id);
+
+      // this.$store.dispatch("initiator/resetOtherBranches", otherBranches);
 
       document.getElementById(id.substring(0, 4)).remove();
       if (this.evenShareStat === "yes") {
@@ -274,13 +312,18 @@ export default {
       this.deleteItem(id);
     },
     shareEvenAmt() {
+      this.disableAmtInput();
+      this.apportioner();
+    },
+    disableAmtInput() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       amtBoxes.forEach((box) => box.setAttribute("disabled", "disabled"));
-      this.apportioner();
     },
     enableAmtInput() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
       amtBoxes.forEach((box) => box.removeAttribute("disabled"));
+
+      this.checkTotal();
     },
     checkTotal() {
       const amtBoxes = document.querySelectorAll(".sharedAmtBox");
@@ -296,6 +339,7 @@ export default {
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       if (boxValues.length) {
         this.total = boxValues.reduce(reducer);
+        this.originTotal = boxValues.reduce(reducer).toFixed(2);
       }
       if (this.evenShareStat === "yes") {
         this.apportioner();
@@ -320,6 +364,8 @@ export default {
 
         this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
       }
+      // this.total = this.total.toLocaleString();
+      // this.originTotal = parseFloat(this.total).toFixed(2);
     },
     checkTotalOne() {
       this.checkTotal();
@@ -331,7 +377,12 @@ export default {
       const branchesCount = this.debitBranches.length;
       const drAmount = parseFloat(this.sharedAmount);
 
-      this.total = drAmount.toLocaleString();
+      if (isNaN(drAmount)) {
+        this.total = 0;
+      } else {
+        this.originTotal = drAmount;
+        this.total = drAmount.toLocaleString();
+      }
 
       const baseAmt = parseFloat((drAmount / branchesCount).toFixed(2));
 
@@ -369,7 +420,12 @@ export default {
       this.$store.commit("initiator/updateDrBranchLog", drLogEntry);
     },
     async postTransaction() {
-      if (this.total == this.sharedAmount || this.evenShareStat === "yes") {
+      console.log(this.originTotal);
+      console.log(this.sharedAmount);
+      if (
+        parseFloat(this.originTotal) == parseFloat(this.sharedAmount) ||
+        this.evenShareStat === "yes"
+      ) {
         const fullDate = new Date();
 
         // Format date with zeroes
@@ -420,7 +476,13 @@ export default {
           console.log(err.message) || "Something went wrong. Please try later.";
         }
       } else {
-        this.disparity = this.total - this.sharedAmount;
+        this.disparity = (this.total - this.sharedAmount).toFixed(2);
+        if (Number(this.disparity) > 0) {
+          this.overage = true;
+        } else if (Number(this.disparity) < 0) {
+          this.overage = false;
+        }
+        this.disparity = Number(this.disparity).toLocaleString();
         const body = document.querySelector("body");
         this.active = !this.active;
         body.classList.add("modal-open", "overflow-hidden");

@@ -68,7 +68,7 @@
           "name": "Dugbe"
         },
         {
-         "id": "2073",
+          "id": "2073",
           "name": "Abeokuta"
         },
         {
@@ -220,517 +220,51 @@
           "br": "2071",
           "ledger": "NGN1281410002071",
           "banksCode": "401",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2072",
           "ledger": "NGN1281410002072",
           "banksCode": "405",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2075",
           "ledger": "NGN1281410002075",
           "banksCode": "416",
-          "amt": "2500"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2077",
           "ledger": "NGN1281410002077",
           "banksCode": "418",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2080",
           "ledger": "NGN1281410002080",
           "banksCode": "420",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2085",
           "ledger": "NGN1281410002085",
           "banksCode": "411",
-          "amt": "2500"
-        },
-        {
-          "br": "2086",
-          "ledger": "NGN1281410002086",
-          "banksCode": "423",
-          "amt": "2500"
-        }
-      ],
-      "id": "FT1630783616374",
-      "narration": "test",
-      "txnTime": "04/09/2021 20:26",
-      "evenShare": "yes",
-      "status": "approved"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "30600",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "6200"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "6500"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "2500"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "2100"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "3800"
-        },
-        {
-          "br": "2080",
-          "ledger": "NGN1281410002080",
-          "banksCode": "420",
-          "amt": "4200"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "5300"
-        }
-      ],
-      "id": "FT1630783813002",
-      "narration": "CBN Cash swap",
-      "txnTime": "04/09/2021 20:30",
-      "evenShare": "no",
-      "status": "rejected"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "15000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "2500"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "2500"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "2500"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "2500"
+          "amt": "2857.14"
         },
         {
           "br": "2074",
           "ledger": "NGN1281410002074",
           "banksCode": "413",
-          "amt": "2500"
-        },
-        {
-          "br": "2083",
-          "ledger": "NGN1281410002083",
-          "banksCode": "409",
-          "amt": "2500"
-        }
-      ],
-      "id": "FT1630796057746",
-      "narration": "Fuel for regional gen",
-      "txnTime": "04/09/2021 23:54",
-      "evenShare": "yes",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "15000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2080",
-          "ledger": "NGN1281410002080",
-          "banksCode": "420",
-          "amt": "2142.86"
-        },
-        {
-          "br": "2083",
-          "ledger": "NGN1281410002083",
-          "banksCode": "409",
-          "amt": "2142.84"
-        }
-      ],
-      "id": "FT1630847935783",
-      "narration": "ATM loading",
-      "txnTime": "05/09/2021 14:18",
-      "evenShare": "yes",
-      "noUpload": false,
-      "fileName": "upload_icon.svg",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "15000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "2500"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "2500"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "2500"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "2500"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "2500"
-        },
-        {
-          "br": "2080",
-          "ledger": "NGN1281410002080",
-          "banksCode": "420",
-          "amt": "2500"
-        }
-      ],
-      "id": "FT1630847990900",
-      "narration": "No upload test",
-      "txnTime": "05/09/2021 14:19",
-      "evenShare": "yes",
-      "noUpload": true,
-      "fileName": "",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "1000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "142.86"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "142.86"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "142.86"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "142.86"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "142.86"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "142.86"
-        },
-        {
-          "br": "2083",
-          "ledger": "NGN1281410002083",
-          "banksCode": "409",
-          "amt": "142.84"
-        }
-      ],
-      "id": "FT1630848731145",
-      "narration": "testig",
-      "txnTime": "05/09/2021 14:32",
-      "evenShare": "yes",
-      "noUpload": true,
-      "fileName": "No file uploaded",
-      "status": "approved"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "22000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "4400"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "4400"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "4400"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "4400"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "4400"
-        }
-      ],
-      "id": "FT1630853496558",
-      "narration": "test again",
-      "txnTime": "05/09/2021 15:51",
-      "evenShare": "yes",
-      "noUpload": true,
-      "fileName": "No file uploaded",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "20000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2080",
-          "ledger": "NGN1281410002080",
-          "banksCode": "420",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "2857.14"
-        },
-        {
-          "br": "2086",
-          "ledger": "NGN1281410002086",
-          "banksCode": "423",
           "amt": "2857.16"
         }
       ],
-      "id": "FT1630866971848",
-      "narration": "Sth light",
-      "txnTime": "05/09/2021 19:36",
+      "id": "FT1631114791274",
+      "narration": "Out of station for RSM",
+      "txnTime": "08/09/2021 16:26",
       "evenShare": "yes",
       "noUpload": false,
-      "fileName": "leave-certificate-exit18623.pdf",
+      "fileName": "cross-legged-laptop-user.png",
       "status": "approved"
     },
     {
@@ -750,52 +284,58 @@
         "password": "passwordSample@1",
         "supervisor": "nwosuyh"
       },
-      "totalAmount": "14150",
+      "totalAmount": "15000",
       "txnDetails": [
         {
           "br": "2071",
           "ledger": "NGN1281410002071",
           "banksCode": "401",
-          "amt": "2500"
+          "amt": "2142.86"
         },
         {
           "br": "2072",
           "ledger": "NGN1281410002072",
           "banksCode": "405",
-          "amt": "9600"
+          "amt": "2142.86"
         },
         {
           "br": "2075",
           "ledger": "NGN1281410002075",
           "banksCode": "416",
-          "amt": "500"
+          "amt": "2142.86"
         },
         {
           "br": "2076",
           "ledger": "NGN1281410002076",
           "banksCode": "417",
-          "amt": "500"
+          "amt": "2142.86"
         },
         {
           "br": "2077",
           "ledger": "NGN1281410002077",
           "banksCode": "418",
-          "amt": "500"
+          "amt": "2142.86"
         },
         {
           "br": "2080",
           "ledger": "NGN1281410002080",
           "banksCode": "420",
-          "amt": "550"
+          "amt": "2142.86"
+        },
+        {
+          "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "2142.84"
         }
       ],
-      "id": "FT1630867072243",
-      "narration": "Test",
-      "txnTime": "05/09/2021 19:37",
-      "evenShare": "no",
+      "id": "FT1631133750010",
+      "narration": "ffff",
+      "txnTime": "08/09/2021 21:42",
+      "evenShare": "yes",
       "noUpload": true,
       "fileName": "No file uploaded",
-      "status": "rejected"
+      "status": "pending"
     },
     {
       "initiatorDetails": {
@@ -814,219 +354,137 @@
         "password": "passwordSample@1",
         "supervisor": "nwosuyh"
       },
-      "totalAmount": "5000",
+      "totalAmount": "18000",
       "txnDetails": [
         {
           "br": "2071",
           "ledger": "NGN1281410002071",
           "banksCode": "401",
-          "amt": "555.56"
+          "amt": "2142.86"
         },
         {
           "br": "2072",
           "ledger": "NGN1281410002072",
           "banksCode": "405",
-          "amt": "555.56"
+          "amt": "2142.86"
         },
         {
           "br": "2075",
           "ledger": "NGN1281410002075",
           "banksCode": "416",
-          "amt": "555.56"
+          "amt": "2142.86"
         },
         {
           "br": "2076",
           "ledger": "NGN1281410002076",
           "banksCode": "417",
-          "amt": "555.56"
+          "amt": "2142.86"
         },
         {
           "br": "2077",
           "ledger": "NGN1281410002077",
           "banksCode": "418",
-          "amt": "555.56"
+          "amt": "2140.86"
         },
         {
           "br": "2080",
           "ledger": "NGN1281410002080",
           "banksCode": "420",
-          "amt": "555.56"
+          "amt": "2142.86"
         },
         {
           "br": "2085",
           "ledger": "NGN1281410002085",
           "banksCode": "411",
-          "amt": "555.56"
+          "amt": "2144.84"
         },
         {
           "br": "2074",
           "ledger": "NGN1281410002074",
           "banksCode": "413",
-          "amt": "555.56"
+          "amt": "1500"
+        },
+        {
+          "br": "2074",
+          "ledger": "NGN1281410002074",
+          "banksCode": "413",
+          "amt": "1500"
+        }
+      ],
+      "id": "FT1631136609711",
+      "narration": "dddd",
+      "txnTime": "08/09/2021 22:30",
+      "evenShare": "no",
+      "noUpload": true,
+      "fileName": "No file uploaded",
+      "status": "pending"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "15857.15",
+      "txnDetails": [
+        {
+          "br": "2071",
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
+          "amt": "2571.43"
+        },
+        {
+          "br": "2072",
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
+          "amt": "2571.43"
+        },
+        {
+          "br": "2076",
+          "ledger": "NGN1281410002076",
+          "banksCode": "417",
+          "amt": "2571.43"
+        },
+        {
+          "br": "2080",
+          "ledger": "NGN1281410002080",
+          "banksCode": "420",
+          "amt": "2571.43"
+        },
+        {
+          "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "2571.43"
+        },
+        {
+          "br": "2074",
+          "ledger": "NGN1281410002074",
+          "banksCode": "413",
+          "amt": "1600"
         },
         {
           "br": "2087",
           "ledger": "NGN1281410002087",
           "banksCode": "424",
-          "amt": "555.52"
+          "amt": "1400"
         }
       ],
-      "id": "FT1630873048932",
-      "narration": "Please work!!!!!!!!!!",
-      "txnTime": "05/09/2021 21:17",
-      "evenShare": "yes",
-      "noUpload": true,
-      "fileName": "No file uploaded",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "2500",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "357.14"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "357.14"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "357.14"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "357.14"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "357.14"
-        },
-        {
-          "br": "2080",
-          "ledger": "NGN1281410002080",
-          "banksCode": "420",
-          "amt": "357.14"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "357.14"
-        },
-        {
-          "br": "2086",
-          "ledger": "NGN1281410002086",
-          "banksCode": "423",
-          "amt": "357.14"
-        },
-        {
-          "br": "2073",
-          "ledger": "NGN1281410002073",
-          "banksCode": "408",
-          "amt": "357.16"
-        }
-      ],
-      "id": "FT1630874534069",
-      "narration": "ggg",
-      "txnTime": "05/09/2021 21:42",
-      "evenShare": "yes",
-      "noUpload": true,
-      "fileName": "No file uploaded",
-      "status": "pending"
-    },
-    {
-      "initiatorDetails": {
-        "id": "aladejubeloea",
-        "firstName": "Ajibolanle",
-        "lastName": "Aladejubelo",
-        "username": "ALADE004577",
-        "branch": {
-          "name": "Dugbe",
-          "banksCode": "402",
-          "t24Code": "2072",
-          "region": "SW 1"
-        },
-        "approvalLevel": "0",
-        "role": "Initiator",
-        "password": "passwordSample@1",
-        "supervisor": "nwosuyh"
-      },
-      "totalAmount": "2000",
-      "txnDetails": [
-        {
-          "br": "2071",
-          "ledger": "NGN1281410002071",
-          "banksCode": "401",
-          "amt": "333.33"
-        },
-        {
-          "br": "2072",
-          "ledger": "NGN1281410002072",
-          "banksCode": "405",
-          "amt": "333.33"
-        },
-        {
-          "br": "2075",
-          "ledger": "NGN1281410002075",
-          "banksCode": "416",
-          "amt": "333.33"
-        },
-        {
-          "br": "2076",
-          "ledger": "NGN1281410002076",
-          "banksCode": "417",
-          "amt": "333.33"
-        },
-        {
-          "br": "2077",
-          "ledger": "NGN1281410002077",
-          "banksCode": "418",
-          "amt": "333.33"
-        },
-        {
-          "br": "2085",
-          "ledger": "NGN1281410002085",
-          "banksCode": "411",
-          "amt": "333.33"
-        },
-        {
-          "br": "2074",
-          "ledger": "NGN1281410002074",
-          "banksCode": "413",
-          "amt": "333.35"
-        }
-      ],
-      "id": "FT1630874932178",
-      "narration": "test",
-      "txnTime": "05/09/2021 21:48",
-      "evenShare": "yes",
+      "id": "FT1631136659069",
+      "narration": "cccc",
+      "txnTime": "08/09/2021 22:30",
+      "evenShare": "no",
       "noUpload": true,
       "fileName": "No file uploaded",
       "status": "pending"
@@ -1063,6 +521,12 @@
           "amt": "3333.33"
         },
         {
+          "br": "2075",
+          "ledger": "NGN1281410002075",
+          "banksCode": "416",
+          "amt": "3333.33"
+        },
+        {
           "br": "2076",
           "ledger": "NGN1281410002076",
           "banksCode": "417",
@@ -1075,34 +539,86 @@
           "amt": "3333.33"
         },
         {
+          "br": "2085",
+          "ledger": "NGN1281410002085",
+          "banksCode": "411",
+          "amt": "3333.35"
+        }
+      ],
+      "id": "FT1631136959853",
+      "narration": "dddd",
+      "txnTime": "08/09/2021 22:35",
+      "evenShare": "yes",
+      "noUpload": true,
+      "fileName": "No file uploaded",
+      "status": "pending"
+    },
+    {
+      "initiatorDetails": {
+        "id": "aladejubeloea",
+        "firstName": "Ajibolanle",
+        "lastName": "Aladejubelo",
+        "username": "ALADE004577",
+        "branch": {
+          "name": "Dugbe",
+          "banksCode": "402",
+          "t24Code": "2072",
+          "region": "SW 1"
+        },
+        "approvalLevel": "0",
+        "role": "Initiator",
+        "password": "passwordSample@1",
+        "supervisor": "nwosuyh"
+      },
+      "totalAmount": "130142.86",
+      "txnDetails": [
+        {
+          "br": "2071",
+          "ledger": "NGN1281410002071",
+          "banksCode": "401",
+          "amt": "47000"
+        },
+        {
+          "br": "2072",
+          "ledger": "NGN1281410002072",
+          "banksCode": "405",
+          "amt": "13857.14"
+        },
+        {
+          "br": "2075",
+          "ledger": "NGN1281410002075",
+          "banksCode": "416",
+          "amt": "13857.14"
+        },
+        {
+          "br": "2076",
+          "ledger": "NGN1281410002076",
+          "banksCode": "417",
+          "amt": "13857.14"
+        },
+        {
+          "br": "2077",
+          "ledger": "NGN1281410002077",
+          "banksCode": "418",
+          "amt": "13857.14"
+        },
+        {
           "br": "2080",
           "ledger": "NGN1281410002080",
           "banksCode": "420",
-          "amt": "3333.33"
+          "amt": "13857.14"
         },
         {
           "br": "2085",
           "ledger": "NGN1281410002085",
           "banksCode": "411",
-          "amt": "3333.33"
-        },
-        {
-          "br": "2087",
-          "ledger": "NGN1281410002087",
-          "banksCode": "424",
-          "amt": "3333.33"
-        },
-        {
-          "br": "2086",
-          "ledger": "NGN1281410002086",
-          "banksCode": "423",
-          "amt": "3333.35"
+          "amt": "13857.16"
         }
       ],
-      "id": "FT1630875294782",
-      "narration": "weekend whatever",
-      "txnTime": "05/09/2021 21:54",
-      "evenShare": "yes",
+      "id": "FT1631136996333",
+      "narration": "test",
+      "txnTime": "08/09/2021 22:36",
+      "evenShare": "no",
       "noUpload": true,
       "fileName": "No file uploaded",
       "status": "pending"

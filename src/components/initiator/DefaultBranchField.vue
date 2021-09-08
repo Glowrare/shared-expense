@@ -26,6 +26,7 @@
         placeholder="0"
         :id="`${branch.id}-amt`"
         @blur="$emit('check-total-one')"
+        step="any"
         disabled
       />
     </div>

@@ -49,8 +49,6 @@ export default {
 
     context.commit("fetchPostID", payload.id);
 
-    console.log(responseData);
-
     if (!response.ok) {
       const error = new Error(responseData.message || "Something went wrong");
       throw error;
@@ -83,8 +81,6 @@ export default {
     const approvedTransactions = allTransactions.filter(
       (txn) => txn.status !== "pending" && txn.initiatorDetails.id === userID.id
     );
-
-    console.log(approvedTransactions);
 
     context.commit("fetchApprovedTxns", approvedTransactions);
   },
