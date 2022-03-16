@@ -1,29 +1,27 @@
 export default {
   async login(context, payload) {
-    context.commit("loginError", {
+    context.commit('loginError', {
       loginError: false,
-      loginErrorMessage: "",
+      loginErrorMessage: '',
     });
 
-    const response = await fetch(
-      `http://localhost:3000/users/${payload.username}`
-    );
+    const response = await fetch(`api/users/${payload.username}`);
     const responseData = await response.json();
     if (response.ok && payload.password === responseData.password) {
-      context.commit("authenticationStatus", true);
-      context.commit("setUser", responseData);
+      context.commit('authenticationStatus', true);
+      context.commit('setUser', responseData);
     } else {
-      context.commit("loginError", {
+      context.commit('loginError', {
         loginError: true,
-        loginErrorMessage: "Incorrect details",
+        loginErrorMessage: 'Incorrect details',
       });
     }
     if (!response.ok) {
-      context.commit("loginError", {
+      context.commit('loginError', {
         loginError: true,
-        loginErrorMessage: "User does not exist",
+        loginErrorMessage: 'User does not exist',
       });
-      const error = new Error(responseData.message || "User does not exist");
+      const error = new Error(responseData.message || 'User does not exist');
       throw error;
     }
   },
