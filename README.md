@@ -1,5 +1,11 @@
 # shared-expense
 
+A web app built to eliminate repeated human tasks for processing shared expenses among bank branches.
+
+Shared Expense app provides access to initiator tasks as well as approving routes to enforce a maker-checker system and a control route for proofing of transactions and for reconciliation purposes.
+
+> This setup was demoed with the use of json-server to create a full fake REST API for database log for user profiles, branch records and transaction storage.
+
 ## Project setup
 
 ```
