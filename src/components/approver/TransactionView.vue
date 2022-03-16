@@ -211,7 +211,7 @@ export default {
   background-color: var(--pale-red);
 }
 .upload-doc-label-fmt:hover {
-  border-color: var(--pry-red);
+  border-color: var(--brand-color);
 }
 .upload-doc-label-fmt > input[type="file"] {
   opacity: 0;

@@ -511,7 +511,7 @@ export default {
   font-size: 14px;
   font-weight: 700;
   text-decoration: underline;
-  color: var(--pry-red);
+  color: var(--brand-color);
   background: none;
   border: none;
 }
@@ -537,7 +537,7 @@ export default {
   background-color: var(--pale-red);
 }
 .upload-doc-label-fmt:hover {
-  border-color: var(--pry-red);
+  border-color: var(--brand-color);
 }
 .upload-doc-label-fmt > input[type="file"] {
   opacity: 0;

@@ -36,8 +36,8 @@ a {
   height: 40px;
   min-width: 170px;
   font: inherit;
-  background-color: var(--pry-red);
-  border: 1px solid var(--pry-red);
+  background-color: var(--brand-color);
+  border: 1px solid var(--brand-color);
   color: white;
   cursor: pointer;
   border-radius: 6px;
@@ -49,20 +49,21 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: var(--sec-red);
-  border-color: var(--sec-red);
+  background-color: var(--brand-color-alt);
+  border-color: var(--brand-color-alt);
+  box-shadow: var(--brand-shadow);
 }
 
 .flat {
   background-color: transparent;
-  color: var(--pry-red);
+  color: var(--brand-color);
   border: none;
 }
 
 .outline {
   background-color: transparent;
-  border-color: var(--sec-red);
-  color: var(--sec-red);
+  border-color: var(--brand-color-alt);
+  color: var(--brand-color-alt);
 }
 
 .flat:hover,

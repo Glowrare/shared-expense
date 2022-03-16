@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .branch-tile {
-  box-shadow: 1px 2px 2px var(--pry-red);
+  box-shadow: 1px 2px 2px var(--brand-color);
   min-height: 70px;
   border-radius: 4px;
   font-size: 14px;
@@ -38,7 +38,7 @@ export default {
   color: inherit;
 }
 .branch-tile:hover {
-  color: var(--pry-red);
+  color: var(--brand-color);
   box-shadow: 1px 3px 3px var(--pale-red);
 }
 </style>

@@ -19,11 +19,13 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
 :root {
-  --pry-red: #db353a;
-  --sec-red: #eb5757;
+  --brand-color: #268182;
+  --brand-color-alt: #0f8385;
   --pale-red: #fcf7f7;
-  --pry-black: #231e23;
+  --pry-black: #020105;
   --pry-grey: #606062;
+
+  --brand-shadow: 0 4px 4px #26818259;
 }
 * {
   box-sizing: border-box;

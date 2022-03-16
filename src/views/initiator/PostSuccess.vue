@@ -38,6 +38,6 @@ export default {
   background: var(--pale-red);
   border-radius: 8px;
   font-size: 34px;
-  color: var(--pry-red);
+  color: var(--brand-color);
 }
 </style>

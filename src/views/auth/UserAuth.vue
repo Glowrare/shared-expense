@@ -98,6 +98,12 @@ export default {
 
 <style scoped>
 .login-bg {
-  background-image: url(../../assets/pi5rGrXAT.png);
+  background: linear-gradient(
+      90deg,
+      rgba(255, 249, 252, 0.8) 0%,
+      rgba(15, 131, 133, 0.4) 74%,
+      rgba(52, 144, 145, 0.8) 100%
+    ),
+    url(../../assets/pi5rGrXAT1.jpg) center/cover no-repeat;
 }
 </style>

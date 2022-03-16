@@ -2,22 +2,19 @@
   <div class="my-4 d-flex flex-wrap justify-content-between align-items-center">
     <router-link to="/" class="mb-3">
       <img
-        src="../../assets/sterling-full-logo.png"
-        alt="Sterling Logo"
-        class="img-fluid"
+        src="../../assets/shared-expense-logo-with-text.png"
+        alt="Shared expenses Logo"
+        class="img-fluid d-none d-sm-inline"
+      />
+      <img
+        src="../../assets/shared-expense-logo.png"
+        alt="Shared expenses Logo"
+        class="img-fluid d-sm-none"
       />
     </router-link>
     <router-link
       to="/"
-      class="
-        log-out
-        mb-3
-        text-decoration-none
-        fw-bold
-        text-uppercase
-        fs-5
-        text-danger
-      "
+      class="log-out mb-3 fw-bold text-uppercase fs-5"
       v-if="isLoggedIn"
       >Log out</router-link
     >
@@ -46,3 +43,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.log-out {
+  color: var(--brand-color-alt);
+  text-decoration: none;
+}
+.log-out:hover {
+  text-decoration: underline;
+}
+</style>
